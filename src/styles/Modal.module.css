@@ -1,0 +1,40 @@
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background:rgba(0,0,0,0.7);
+  z-index:11;
+}
+.container{
+  width: calc(90% - 30px);
+  background: var(--color-bg-secondary);
+  max-width: 370px;
+  z-index: 12;
+  position:fixed;
+  max-height: 100%;
+  top:50%;
+  left:50%;
+  padding: 20px 15px;
+  transform:translate(-50%,-50%) scale(0);
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  transition: all 300ms ease-in-out;
+}
+.closeBtn {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 800;
+}
+.closeBox{
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  background: #00c2cb;
+  color: #fff;
+}

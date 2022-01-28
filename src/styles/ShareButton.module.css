@@ -1,0 +1,21 @@
+.shareBox{
+  width: 40px;
+  height: 40px;
+  color: var(--color-text-primary);
+  border-radius: 50%;
+  border: 1px solid #00c2cb;
+  background: transparent;
+  transition: all ease-in-out 250ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 400;
+  margin-left: 8px;
+}
+.shareBox:hover{
+  background: #00c2cb;
+  box-shadow: 0 0 5px #00c2cb;
+  color: #fff;
+  outline: none;
+}

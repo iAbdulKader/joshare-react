@@ -1,0 +1,29 @@
+.pinContainer{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  background: var(--color-bg-secondary);
+  margin: 12px auto;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow);
+}
+.pinContainer input{
+  padding: 15px 0;
+  margin: none;
+  font-size: .9rem;
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 60%;
+  color: #ff5757;
+  font-weight: 500;
+}
+.copyBtn{
+  color: var(--color-text-primary);
+  margin-right: 20px;
+  cursor: pointer;
+}
