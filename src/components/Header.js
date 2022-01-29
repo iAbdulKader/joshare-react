@@ -1,11 +1,12 @@
-import {useState} from "react"
+import { useState } from "react"
 import styles from "../styles/Header.module.css";
 import Logo from "./Logo";
 import Modal from "./Modal";
 import SharePage from "./SharePage";
 import CountDown from "./CountDown";
 import ShareButton from "./ShareButton";
-import UploadButton from "./UploadButton"
+import UploadButton from "./UploadButton";
+import { Link } from "react-router-dom";
 
 export default function Header({ showUpload = false }) {
   const [show, setShow] = useState(false)
@@ -26,7 +27,9 @@ export default function Header({ showUpload = false }) {
     
       <div className={styles.header}>
         <div style={{marginLeft: "5%"}}>
-          <Logo fontSize=".7rem" />
+          <Link to="/">
+            <Logo fontSize=".7rem" />
+          </Link>
         </div>
         
         <div className={styles.buttonContainer}>

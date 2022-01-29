@@ -6,11 +6,13 @@ export default function UploadButton() {
     padding: "4px 15px",
     borderRadius: "5px",
     textAlign: "center",
+    curosr: "pointer",
+    userSelect: "none"
   }
   
   return (
     <div 
-      className="center"
+      className="center nonAuthButton"
       style={divStyle}
     >
       Upload Files

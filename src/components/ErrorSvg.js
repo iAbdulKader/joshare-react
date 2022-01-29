@@ -4,8 +4,8 @@ function ErrorSvg() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="500"
-      height="500"
+      width="350"
+      height="350"
       contentScriptType="text/ecmascript"
       version="1.2"
       viewBox="0 0 375 375"

@@ -15,6 +15,7 @@
   border: 1px solid #00c2cb;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+  transition: all 300ms ease-in-out;
 }
 .inputBox > input {
   outline: none;
@@ -49,6 +50,7 @@
 }
 .inputBox:focus-within {
   box-shadow: 0 0 8px #00c2cb;
+  transform: scale(1.1);
 }
 .inputBox.error {
   box-shadow: 0 0 8px var(--color-error);

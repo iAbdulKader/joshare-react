@@ -1,0 +1,17 @@
+.conatiner{
+  width: 100%;
+  height: 100%;
+}
+.homeBtn{
+  width: 120px;
+  height: 35px;
+  background: var(--color-button-border);
+  border-radius: 5px;
+  margin-bottom: 50px;
+  cursor: pointer;
+  user-select: none;
+}
+.homeBtn a{
+  text-decoration: none;
+  color: #fff;
+}
