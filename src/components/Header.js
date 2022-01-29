@@ -5,8 +5,9 @@ import Modal from "./Modal";
 import SharePage from "./SharePage";
 import CountDown from "./CountDown";
 import ShareButton from "./ShareButton";
+import UploadButton from "./UploadButton"
 
-export default function Header() {
+export default function Header({ showUpload = false }) {
   const [show, setShow] = useState(false)
   
   const toggle = () => {
@@ -15,7 +16,6 @@ export default function Header() {
   }
   return(
     <>
-    
       <Modal 
         show={show} 
         toggle={toggle}
@@ -30,9 +30,14 @@ export default function Header() {
         </div>
         
         <div className={styles.buttonContainer}>
-          <CountDown />
-          <ShareButton toggle={toggle} />
+          {!showUpload ? 
+          (<>
+            <CountDown />
+            <ShareButton toggle={toggle} />
+            </>):
+            (<UploadButton />)}
         </div>
+        
       </div>
     </>
     )

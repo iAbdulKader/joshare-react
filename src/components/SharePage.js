@@ -12,7 +12,7 @@ export default function SharePage() {
   
   const copy = () => {
     navigator.clipboard.writeText(link)
-    toast.success("copied")
+    toast.success("Copied")
   }
   
   return(
@@ -29,6 +29,10 @@ export default function SharePage() {
         <div onClick={copy}>
           <FiCopy style={{verticalAlign: "middle"}} />
         </div>
+      </div>
+      
+      <div className={styles.shareText}>
+        <h3>Share</h3>
       </div>
       
       <div className={styles.socialShare}>

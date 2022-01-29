@@ -26,7 +26,6 @@ body[data-theme="light"] {
   --color-bg-toggle: #393E46;
   --color-text-toggle: #fff;
   --color-progress: #edf5fe;
-  --color-progress-border: #edf5fe;
   --color-bg-upload-hover: rgba(96,113,114,.1);
   --color-button-border: #00c2cb;
 }
@@ -37,7 +36,6 @@ body[data-theme="dark"] {
   --color-bg-toggle: #fff;
   --color-text-toggle: black;
   --color-progress: #6c6e6d;
-  --color-progress-border: rgba(108,110,109,1);
   --color-button-border: #ff5757;
 }
 
@@ -113,4 +111,11 @@ body[data-theme="dark"] {
 .highlight {
   color: #00c2cb;
   font-weight: 700;
+}
+
+.loader_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 }

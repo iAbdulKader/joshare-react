@@ -1,10 +1,14 @@
-.uploadWrapper{
-  width: calc(90% - 40px);
-  max-width: 360px;
+.main{
   background: var(--color-bg-secondary);
   border-radius: 8px;
   box-shadow: var(--box-shadow);
   margin: 15px auto 50px auto;
+  width: 90%;
+  max-width: 400px;
+}
+
+.uploadWrapper{
+  width: calc(100%-40px);
   height: 160px;
   padding: 20px;
 }

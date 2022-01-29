@@ -1,0 +1,48 @@
+.container {
+  height: 80px;
+  width: calc(100% - 40px);
+  max-width: 400px;
+  margin: auto;
+  padding-bottom: 20px;
+}
+.wrapper{
+  border: 1.5px solid var(--color-progress);
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.progressBar{
+  background: var(--color-progress);
+  width: 100%;
+  height: 100%;
+  transition: transform 250ms linear;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.infoText{
+  position: absolute;
+  top: 10px;
+  left: 4%;
+  width: 92%;
+  color: var(--color-text-primary);
+}
+.infoText p{
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3px;
+}
+.infoText h6 {
+  margin: 0;
+  padding: 0;
+}
+.progressLine {
+  height: 3px;
+  border-radius: 1px;
+  background: #03a9f4;
+  width: 100%;
+  margin-top: 6px;
+  transition: transform 200ms linear;
+  transform: scaleX(0);
+  transform-origin: left;
+}

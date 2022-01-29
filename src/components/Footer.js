@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <div className="footer">
         <div className="footerText">
-          <a href="/about">About</a>
-          <a href="/terms">Terms & Conditons</a>
-          <a href="/howtouse">How To Use</a>
-          <a href="/support">Support</a>
+          <Link to="/about">About</Link>
+          <Link to="/terms">Terms & Conditons</Link>
+          <Link to="/howtouse">How To Use</Link>
+          <Link to="/support">Support</Link>
         </div>
       </div>
     )
