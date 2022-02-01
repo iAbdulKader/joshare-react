@@ -38,3 +38,6 @@
   background: #00c2cb;
   color: #fff;
 }
+.closeBox:hover{
+  color: #ff5757;
+}

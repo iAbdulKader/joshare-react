@@ -38,7 +38,11 @@ export default function Header({ showUpload = false }) {
             <CountDown />
             <ShareButton toggle={toggle} />
             </>):
-            (<UploadButton />)}
+            (
+            <Link to="/myfiles">
+              <UploadButton />
+            </Link>
+            )}
         </div>
         
       </div>
