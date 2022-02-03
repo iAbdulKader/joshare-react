@@ -5,43 +5,52 @@
   flex-direction: column;
 }
 .inputBox {
-  width: 85%;
+  width: 100%;
   max-width: 400px;
   background: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 2.2rem;
+  justify-content: space-between;
+  height: 35px;
   border: 1px solid #00c2cb;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
   transition: all 300ms ease-in-out;
 }
-.inputBox > input {
-  outline: none;
+.inputContainer{
+  width: 80%;
+  margin-left: 10px;
+}
+.inputContainer input {
+  padding: 0;
   border: none;
-  height: 100%;
-  width: 90%;
-  padding: 0 15px;
+  outline: none;
+  background: none;
+  width: 100%;
+  padding: 7px 0;
   border-radius: 8px;
 }
 
-.inputBox input::placeholder {
+.inputContainer input::placeholder {
   font-family: Poppins;
 }
 
-.inputBox > button {
+.buttonContainer{
+  width: 40px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonContainer button{
+  padding: 0;
   background: none;
   border: none;
-  font-size: 1.5rem;
-  width: 40px;
-  padding: 0 8px .1rem;
-  color: #e15b64;
-  height: 100%;
+  font-size: 22px;
+  color: var(--color-button-border);
 }
-.spinerContainer{
-  width: 40px;
-  height: 100%;
+.spiner{
+  stroke: var(--color-button-border);
 }
 
 .inputBox input:hover {
@@ -73,13 +82,13 @@
     transform: translateX(0);
   }
   25% {
-    transform: translateX(-50px);
+    transform: translateX(-40px);
   }
   50% {
     transform: translateX(0);
   }
   75% {
-    transform: translateX(50px);
+    transform: translateX(40px);
   }
   100% {
     transform: translateX(0);

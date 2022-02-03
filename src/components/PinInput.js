@@ -26,19 +26,23 @@ export default function PinInput() {
   
   return (
     <div className={styles.inputWrapper}>
-      <form ref={boxRef} className={styles.inputBox} onSubmit={handleSubmit}>
-       <input type="number" placeholder="Enter PIN" name="pin" value={pin} onChange={(e) => setPin(e.target.value)} />
-      {true ? (<button type="submit">
-         <BiSearchAlt style={{ verticalAlign: 'middle' }} />
-       </button>) :
-       (<div className={`${styles.spinerContainer} center`}>
-         <div 
-           className="center" 
-           style={{padding: "0 12px 0 4px"}}
-         >
-           <LoadingSpiner stroke="#e15b64" />
-         </div>
-       </div>)}
+      <form 
+        ref={boxRef} 
+        className={styles.inputBox} 
+        onSubmit={handleSubmit}
+      >
+        <div className={styles.inputContainer}>
+          <input type="number" placeholder="Enter PIN" name="pin" value={pin} onChange={(e) => setPin(e.target.value)} />
+        </div>
+        <div className={styles.buttonContainer}>
+        {true ? 
+          (<button type="submit">
+              <BiSearchAlt style={{ verticalAlign: 'middle' }} />
+           </button>) :
+           (<div className="center">
+              <LoadingSpiner className={styles.spiner} />
+           </div>)}
+        </div>
       </form>
       <div className={styles.errorInfo}>
       {error}</div>
