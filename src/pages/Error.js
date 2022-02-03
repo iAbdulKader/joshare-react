@@ -1,11 +1,11 @@
-import AlternateLayout from "../layout/AlternateLayout";
+import Layout from "../layout";
 import { Link } from "react-router-dom";
 import styles from "../styles/Error.module.css";
 import ErrorSvg from "../components/ErrorSvg";
 
 export default function Error() {
   return (
-    <AlternateLayout>
+    <Layout>
      <div className={`${styles.container} horizontal_center`}>
        <ErrorSvg />
        
@@ -13,6 +13,6 @@ export default function Error() {
          <Link to="/">Home</Link>
        </div>
       </div>
-    </AlternateLayout>
+    </Layout>
     )
 }

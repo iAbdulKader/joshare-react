@@ -1,13 +1,11 @@
 import Footer from "../components/Footer";
-import ThemeButton from "../components/ThemeButton";
-import { Toaster } from 'react-hot-toast';
+import Header from "../components/Header";
 
-export default function Layout({children}) {
+export default function AlternateLayout({children}) {
   return(
     <>
-      {children}
-      <Toaster />
-      <ThemeButton />
+      <Header showUpload={true} />
+        {children}
       <Footer />
     </>
     )

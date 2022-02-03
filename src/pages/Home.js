@@ -1,11 +1,11 @@
 import Logo from "../components/Logo";
 import HomeForm from "../components/HomeForm";
-import Layout from "../layout";
+import Footer from "../components/Footer";
 
 export default function Home(){
   
   return (
-    <Layout>
+    <>
       <div style={{marginBottom: "100px"}}>
         <div className="logoContainer">
           <Logo fontSize="1.75rem" />
@@ -14,6 +14,7 @@ export default function Home(){
           <HomeForm />
         </div>
       </div>
-    </Layout>
+      <Footer />
+    </>
     );
 }

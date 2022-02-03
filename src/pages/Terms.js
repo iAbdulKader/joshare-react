@@ -1,9 +1,9 @@
-import AlternateLayout from "../layout/AlternateLayout";
+import Layout from "../layout";
 
 export default function Terms() {
   return (
-    <AlternateLayout>
+    <Layout>
       Terms
-    </AlternateLayout>
+    </Layout>
     )
 }

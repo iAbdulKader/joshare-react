@@ -1,9 +1,9 @@
-import AlternateLayout from "../layout/AlternateLayout";
+import Layout from "../layout";
 
 export default function Support() {
   return (
-    <AlternateLayout>
+    <Layout>
       Support
-    </AlternateLayout>
+    </Layout>
     )
 }

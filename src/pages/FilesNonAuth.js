@@ -1,14 +1,15 @@
-import Layout from "../layout";
 import Header from "../components/Header";
 import PinHolder from "../components/PinHolder";
 import Files from "../components/Files";
+import Footer from "../components/Footer";
 
 export default function FilesNonAuth() {
   return (
-    <Layout>
+    <>
       <Header />
       <PinHolder />
       <Files auth={false} />
-    </Layout>
+      <Footer />
+    </>
     )
 }

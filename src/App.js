@@ -7,6 +7,8 @@ import HowToUse from "./pages/HowToUse";
 import Support from "./pages/Support";
 import Error from "./pages/Error";
 import { Routes, Route } from "react-router-dom";
+import ThemeButton from "./components/ThemeButton";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="support" element={<Support />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <Toaster />
+        <ThemeButton />
     </>
   );
 }

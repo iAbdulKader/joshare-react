@@ -1,9 +1,9 @@
-import AlternateLayout from "../layout/AlternateLayout";
+import Layout from "../layout";
 
 export default function HowToUse() {
   return (
-    <AlternateLayout>
+    <Layout>
       How To Use
-    </AlternateLayout>
+    </Layout>
     )
 }
