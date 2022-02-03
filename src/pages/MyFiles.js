@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Header from "../components/Header";
 import PinHolder from "../components/PinHolder";
 import Files from "../components/Files";
@@ -6,6 +7,10 @@ import Upload from "../components/Upload";
 import Footer from "../components/Footer";
 
 export default function MyFiles(){
+  useEffect(() => {
+    document.title = "My Files | joShare - File Sharing"
+  }, [])
+  
   return (
     <>
       <Header />
