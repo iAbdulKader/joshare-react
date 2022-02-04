@@ -18,23 +18,40 @@
   width: 100%;
   height: 100%;
 }
+.uploadDotted p{
+  text-align: center;
+  margin: 0;
+  margin-top: 6px;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
 
 .icons{
   width: 25%;
   max-width: 100px;
   position: relative;
+  margin-top: 15px;
 }
 
 .container{
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .container:hover {
   background: var(--color-bg-upload-hover)
 }
 .container input {
   display: none;
+}
+
+.textContainer{
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 .left{
