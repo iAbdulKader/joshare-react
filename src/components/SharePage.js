@@ -32,7 +32,7 @@ export default function SharePage() {
       </div>
       
       <div className={styles.shareText}>
-        <h3>Share</h3>
+        <h3>Share<span className="highlight">.</span></h3>
       </div>
       
       <div className={styles.socialShare}>

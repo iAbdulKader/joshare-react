@@ -10,7 +10,7 @@ export default function AddTimeModal() {
   return (
     <div className={`${styles.container} horizontal_center`}>
       <div className={styles.text}>
-        <p>Your files will be deleted autometically after 24 hours from creating your session. But You can extend this expiry time upto additional 24 hours. To add time select how many hours you want to extend and click Add Time. Although you can add time only once per session.</p>
+        <p>Your files will be deleted autometically after <span className="highlight">24 hours</span> from creating your session. But You can <span className="highlight">extend</span> this expiry time upto additional <span className="highlight">24 hours</span>. To add time select how many hours you want to extend and click Add Time. Although you can add time <span className="highlight">only once per session</span>.</p>
       </div>
       
       <div className={styles.select}>

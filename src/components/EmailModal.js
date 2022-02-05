@@ -9,7 +9,7 @@ export default function EmailModal() {
   return (
     <div className={styles.container}>
       <div className={styles.infoDiv}>
-       <p>You can send only one email with one session.</p>
+       <p>You can send only one email with one session<span className="highlight">.</span></p>
       </div>
       <div className={styles.inputDiv}>
         <p>Sender</p>

@@ -14,7 +14,7 @@ export default function Error() {
      <div className={`${styles.container} horizontal_center`}>
        <ErrorSvg />
        
-       <div className={`${styles.homeBtn} center nonAuthButton`}>
+       <div className={`${styles.homeBtn} center`}>
          <Link to="/">Home</Link>
        </div>
       </div>
