@@ -1,32 +1,33 @@
 import styles from "../styles/ProgressBar.module.css";
+import FileInfo from "./FileInfo";
 
-export default function ProgressBar({percent = 0}) {
+export default function ProgressBar({percent = 100}) {
+  let icon = "docx";
   
   const barStyle = {
     transform: `scaleX(${percent/100})`
   }
   return(
-    <div
-      style={{display: `${percent===0?"none":"block"}`}}
-      className={styles.container}
-    >
       <div className={styles.wrapper}>
-        <div
-          style={barStyle}
-          className={styles.progressBar}
-        >
-        </div>
-        
-        <div className={styles.infoText}>
-          <p>Uploading..</p>
-          <h6>{percent} %</h6>
+          <div
+            style={barStyle}
+            className={styles.progressBar}
+          >
+          </div>
+          
+          <div className={styles.upperSection}>
+            <FileInfo icon={icon} />
+            <div>
+              <h6>{percent} %</h6>
+            </div>
+          </div>
+          
           <div 
             style={barStyle}
             className={styles.progressLine}
-          ></div>
-        </div>
-        
+          >
+          </div>
+          
       </div>
-    </div>
     )
 }

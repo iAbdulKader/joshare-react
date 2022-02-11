@@ -1,13 +1,22 @@
 import { useRef } from "react";
 import styles from "../styles/Upload.module.css";
 import FileIcon from "./FileIcon";
-import ProgressBar from "./ProgressBar";
+import ProgressBars from "./ProgressBars";
 
 export default function Upload() {
   const fileRef = useRef();
+  const fileArr = [];
   
   const triggerFile = () => {
     fileRef.current.click()
+  }
+  
+  const startUpload = e => {
+    
+    for(let file of e.target.files){
+      fileArr.push(file)
+    }
+    console.log(fileArr)
   }
   
   return (
@@ -20,7 +29,12 @@ export default function Upload() {
                <FileIcon className={styles.left} />
                <FileIcon className={styles.center} />
              </div>
-             <input ref={fileRef} type="file" />
+             <input 
+               ref={fileRef} 
+               type="file" 
+               onChange={startUpload}
+               multiple
+             />
              <div className={styles.textContainer}>
               <h4>Drag & Drop Your Files Or <span style={{color: "#0288d1"}} onClick={triggerFile}>Browse</span></h4>
               <p>Max file size 30MB<span className="highlight">.</span></p>
@@ -28,7 +42,7 @@ export default function Upload() {
           </div>
         </div>
       </div>
-      <ProgressBar />
+      <ProgressBars />
     </div>
     )
 }
