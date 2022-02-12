@@ -1,7 +1,19 @@
 import styles from "../styles/RemoveUserModal.module.css";
 import { Button } from "./EmailModal";
+import cookie from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 export default function RemoveUserModal() {
+  const navigate = useNavigate();
+    
+  const removeUser = () => {
+    cookie.remove("token", { path: '' });
+    
+    setTimeout(function() {
+      navigate("/")
+    }, 900);
+  }
+  
   return (
     <div className={`${styles.container} horizontal_center`}>
       <div className={styles.text}>
@@ -9,7 +21,7 @@ export default function RemoveUserModal() {
         <p>Although your current session&apos;s files won&apos;t get deleted before 24 hours unless you manually delete them while you are in that session. That means even after clearing this session your files can be downloaded with <span className="highlight">Share Link, QR Code</span> or with <span className="highlight">PIN</span> before they expires in 24 hours.</p>
       </div>
       
-      <Button text="Confirm Clear" />
+      <Button onClick={removeUser} text="Confirm Clear" />
     </div>
     )
 }

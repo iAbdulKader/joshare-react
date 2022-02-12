@@ -5,10 +5,12 @@ import { AiOutlineWhatsApp } from "react-icons/ai";
 import { BsTelegram } from "react-icons/bs";
 import { RiMessengerLine } from "react-icons/ri";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
+import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 
 export default function SharePage() {
-  const link = "https://joshare.ml/files/35678764";
+  const { pin } = useAuth();
+  const link = `${process.env.REACT_APP_CLIENT_URL}/files/${pin}`;
   
   const copy = () => {
     navigator.clipboard.writeText(link)

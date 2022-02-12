@@ -8,11 +8,10 @@ import ShareButton from "./ShareButton";
 import UploadButton from "./UploadButton";
 import { Link } from "react-router-dom";
 
-export default function Header({ showUpload = false }) {
+export default function Header({ showUpload = false, expire }) {
   const [show, setShow] = useState(false)
   
   const toggle = () => {
-    console.log("hey")
     setShow(!show)
   }
   return(
@@ -35,14 +34,10 @@ export default function Header({ showUpload = false }) {
         <div className={styles.buttonContainer}>
           {!showUpload ? 
           (<>
-            <CountDown />
+            <CountDown expireDate={expire} />
             <ShareButton toggle={toggle} />
             </>):
-            (
-            <Link to="/myfiles">
-              <UploadButton />
-            </Link>
-            )}
+            (<UploadButton />)}
         </div>
         
       </div>

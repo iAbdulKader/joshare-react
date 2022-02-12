@@ -27,11 +27,11 @@ export default function EmailModal() {
     )
 }
 
-export function Button ({text, loading}) {
+export function Button ({text, loading, ...rest}) {
   return (
     <div className={styles.buttonContainer}>
         { !loading ?
-        (<button type="button">{text}</button>) :
+        (<button {...rest} type="button">{text}</button>) :
         (<button>
           <LoadingSpiner className={styles.spiner} />
         </button>)}

@@ -1,7 +1,7 @@
 import styles from "../styles/ProgressBar.module.css";
 import FileInfo from "./FileInfo";
 
-export default function ProgressBar({percent = 100}) {
+export default function ProgressBar({ percent = 66 }) {
   let icon = "docx";
   
   const barStyle = {

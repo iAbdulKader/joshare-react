@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Watch } from "react-loader-spinner";
 import styles from "../styles/Header.module.css";
 
-export default function CountDown({expireDate = "1643470454801"}) {
+export default function CountDown({expireDate = "2022-02-12T19:38:49.024Z"}) {
   const [hours, setHours] = useState("00");
   const [minutes, setMinutes] = useState("00");
   const [seconds, setSeconds] = useState("00");
@@ -10,14 +10,14 @@ export default function CountDown({expireDate = "1643470454801"}) {
   const [isloading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    const expireTime = expireDate;
+    const expireTime = Date.parse(expireDate);
     
     function countDown(){
       if(expireTime === "loading") setIsLoading(true)
       else {
         setIsLoading(false)
         const nowTime = new Date().getTime();
-        var gap = +expireTime - nowTime;
+        var gap = expireTime - nowTime;
       
         const second = 1000;
         const minute = second * 60;
@@ -59,7 +59,7 @@ export default function CountDown({expireDate = "1643470454801"}) {
         width={30}
         timeout={30000000}
       /> 
-     ) : expired ? (
+     ) : !expired ? (
      <h4>
      {hours}:{minutes}:{seconds}
      </h4>
