@@ -4,12 +4,13 @@ import toast from "react-hot-toast";
 
 export default function useSignUp() {
   const navigate = useNavigate();
+  const serverUrl = process.env.REACT_APP_SERVER
   
   const signup = async () => {
     if(cookie.get("token")){
       navigate("/myfiles")
     } else {
-      const response = await fetch(`${process.env.SERVER}/api/signup`, {
+      const response = await fetch(`${serverUrl}/api/signup`, {
         method: "POST"
       })
       let data = await response.json();
