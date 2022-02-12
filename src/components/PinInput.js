@@ -57,7 +57,7 @@ export default function PinInput() {
           }} />
         </div>
         <div className={styles.buttonContainer}>
-        {loading ? 
+        {!loading ? 
           (<button type="submit">
               <BiSearchAlt style={{ verticalAlign: 'middle' }} />
            </button>) :
