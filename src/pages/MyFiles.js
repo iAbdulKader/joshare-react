@@ -18,7 +18,7 @@ export default function MyFiles(){
     if(!pin){
        navigate("/")
     }
-  }, [pin])
+  }, [pin, navigate])
   
   return (
     <>
