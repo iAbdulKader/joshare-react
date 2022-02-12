@@ -30,7 +30,7 @@ export default function FilesNonAuth() {
     if(user.success === false) {
       navigate("/notfound");
     }
-  }, [user])
+  }, [user, navigate])
   
   return (
     <>
