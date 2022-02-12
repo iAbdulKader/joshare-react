@@ -1,27 +1,45 @@
 import { useState, useRef } from "react";
 import styles from "../styles/PinInput.module.css";
+import toast from "react-hot-toast";
+import useUser from "../hooks/useUser";
+import { showError, hideError } from "../lib/errorShowHide";
+import getUserByPin from "../lib/getUserByPin";
+import { useNavigate } from "react-router-dom";
 import LoadingSpiner from "./LoadingSpiner";
 import { BiSearchAlt } from "react-icons/bi";
 
 export default function PinInput() {
   const [pin, setPin] = useState(null);
-  const [error, setError] = useState(" ");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const boxRef = useRef();
   
-  const showError = () => {
-    console.log(boxRef.current.classList)
-    boxRef.current.classList.add(styles.error);
-    boxRef.current.classList.add(styles.errorAnimate);
-    
-    setTimeout(function() {
-      boxRef.current.classList.remove(styles.errorAnimate)
-    }, 350);
-  }
+  const navigate = useNavigate();
+  const { pin: savedPin } = useUser();
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    showError()
-    setError("Error occured")
+    
+    if(pin.length > 8 || pin.length <8){
+      showError(boxRef)
+      setError("Enter Valid 8 Digit Pin")
+      toast.error("Enter Valid 8 Digit Pin");
+    } else if(savedPin === pin) {
+      navigate("/myfiles");
+    } else {
+      setLoading(true);
+      let user = await getUserByPin(pin);
+      if(user === true) {
+        setLoading(false);
+        navigate(`/files/${pin}`);
+      } else {
+        setLoading(false);
+        showError(boxRef);
+        setError("Invalid or Expired Pin.");
+        toast.error("Invalid or Expired Pin.");
+      }
+    }
+    
   }
   
   return (
@@ -32,10 +50,14 @@ export default function PinInput() {
         onSubmit={handleSubmit}
       >
         <div className={styles.inputContainer}>
-          <input type="number" placeholder="Enter PIN" name="pin" value={pin} onChange={(e) => setPin(e.target.value)} />
+          <input type="number" placeholder="Enter PIN" name="pin" value={pin} onChange={(e) => {
+             setPin(e.target.value);
+             setError("");
+             hideError(boxRef);
+          }} />
         </div>
         <div className={styles.buttonContainer}>
-        {true ? 
+        {loading ? 
           (<button type="submit">
               <BiSearchAlt style={{ verticalAlign: 'middle' }} />
            </button>) :
