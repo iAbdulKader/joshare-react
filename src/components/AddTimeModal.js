@@ -1,10 +1,10 @@
 import styles from "../styles/AddTimeModal.module.css";
-import { Button } from "./EmailModal"
+import Button from "./Button";
 
 export default function AddTimeModal() {
   const options = []
   for (var i = 1; i <= 24; i++) {
-    options.push(<option value={i} readOnly>{i} Hour</option>)
+    options.push(<option value={i} key={i} readOnly>{i} Hour</option>)
   }
   
   return (
@@ -19,7 +19,11 @@ export default function AddTimeModal() {
         </select>
       </div>
       
-      <Button text="Add Time" />
+      <Button 
+        text="Add Time"
+        handler={()=>console.log("time")}
+        divClass="utilityBtn"
+      />
     </div>
     )
 }

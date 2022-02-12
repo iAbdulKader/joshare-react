@@ -5,10 +5,12 @@ import Modal from "./Modal";
 import SharePage from "./SharePage";
 import CountDown from "./CountDown";
 import ShareButton from "./ShareButton";
-import UploadButton from "./UploadButton";
+import Button from "./Button";
 import { Link } from "react-router-dom";
+import useSignUp from "../hooks/useSignUp";
 
 export default function Header({ showUpload = false, expire }) {
+  const { loading, signup } = useSignUp();
   const [show, setShow] = useState(false)
   
   const toggle = () => {
@@ -37,7 +39,12 @@ export default function Header({ showUpload = false, expire }) {
             <CountDown expireDate={expire} />
             <ShareButton toggle={toggle} />
             </>):
-            (<UploadButton />)}
+            (<Button 
+               loading={loading}
+               text="Upload Files"
+               handler={signup}
+               divClass={styles.uploadBtn}
+            />)}
         </div>
         
       </div>

@@ -121,22 +121,31 @@ body[data-theme="dark"] {
   align-items: center;
   margin-top: 40px;
 }
-/* Button for error and other non dynamic pages*/
-.nonAuthButton{
-  font-size: 12px;
+
+/*Common Button & Loader Spiner */
+.btnDefault{
+  transition: all 300ms ease-in-out;
   color: var(--color-text-primary);
-  border: 1px solid var(--color-button-border);
-  padding: 4px 15px;
-  border-radius: 5px;
-  text-align: center;
-  curosr: pointer;
   user-select: none;
-  overflow: hidden;
-  transition: all 250ms ease-in-out;
+  curosr: pointer;
 }
-.nonAuthButton:hover{
-  box-shadow: 0 3px 25px -7px var(--color-button-border);
-  border-radius: 5px;
+.btnDefault:hover{
   color: #fff;
+  box-shadow: 0 3px 25px -7px var(--color-button-border);
   background: var(--color-button-border);
+}
+.spinerCommon{
+  stroke: var(--color-text-primary);
+}
+.btnDefault:hover .spinerCommon{
+  stroke: #fff;
+}
+
+/* Utility Btn Class */
+.utilityBtn{
+  height: 32px;
+  width: 130px;
+  border: 1px solid var(--color-button-border);
+  font-size: 13px;
+  border-radius: 5px;
 }

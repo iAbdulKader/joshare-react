@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/EmailModal.module.css";
-import LoadingSpiner from "./LoadingSpiner"
+import Button from "./Button";
 
 export default function EmailModal() {
   const [from, setFrom] = useState("");
@@ -21,20 +21,12 @@ export default function EmailModal() {
         <input type="email" value={to} onChange={(e)=>setTo(e.target.value)} placeholder="Receiver Email" />
       </div>
       
-      <Button text="Send" loading={false} />
+      <Button 
+        text="Add Time"
+        handler={()=>console.log("time")}
+        divClass="utilityBtn"
+      />
       
     </div>
-    )
-}
-
-export function Button ({text, loading, ...rest}) {
-  return (
-    <div className={styles.buttonContainer}>
-        { !loading ?
-        (<button {...rest} type="button">{text}</button>) :
-        (<button>
-          <LoadingSpiner className={styles.spiner} />
-        </button>)}
-      </div>
     )
 }

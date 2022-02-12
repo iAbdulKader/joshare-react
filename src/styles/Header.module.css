@@ -29,4 +29,12 @@
   font-size: 1.1rem;
   font-weight: 500;
 }
-  
+
+/* Upload Btn */
+.uploadBtn{
+  font-size: 12px;
+  border-radius: 5px;
+  border: 1px solid var(--color-button-border);
+  width: 105px;
+  height: 25px;
+}

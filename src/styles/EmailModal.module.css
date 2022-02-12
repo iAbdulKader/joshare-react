@@ -32,30 +32,10 @@
 .inputDiv input::placeholder{
   font-family: Poppins;
 }
-.buttonContainer {
-  margin-top: 8px;
-}
-.buttonContainer button{
-  height: 35px;
-  width: 130px;
-  outline: none;
-  border: 1px solid var(--color-button-border);
-  background: none;
-  border-radius: 5px;
-  color: var(--color-text-primary);
-}
-.buttonContainer button:hover{
-  background: var(--color-button-border);
-  box-shadow: 0 3px 25px -7px var(--color-button-border);
-  color: #fff;
-}
+
 .infoDiv p{
   margin: 0 auto 8px 0;
   font-size: 13px;
   text-align: center;
   color: var(--color-text-primary);
-}
-.spiner {
-  stroke: var(--color-text-primary);
-  margin-top: 2.5px;
 }
