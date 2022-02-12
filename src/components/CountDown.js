@@ -10,7 +10,7 @@ export default function CountDown({expireDate}) {
   const [isloading, setIsLoading] = useState(true);
   
   useEffect(() => {
-    const expireTime = Date.parse(expireDate || "2022-02-12T19:38:49.024Z");
+    const expireTime = Date.parse(expireDate);
     
     function countDown(){
       if(expireTime === "loading") setIsLoading(true)
