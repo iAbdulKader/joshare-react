@@ -15,6 +15,8 @@ export default function useSignUp() {
       setLoading(false);
       navigate("/myfiles");
     } else {
+      toast.loading("Creating User Space");
+      
       const response = await fetch(`${serverUrl}/api/signup`, {
         method: "POST"
       })
@@ -25,6 +27,8 @@ export default function useSignUp() {
           expires: 1
         })
         
+        toast.remove();
+        toast.success("Created User Space")
         setLoading(false);
         navigate("/myfiles");
       } else {
