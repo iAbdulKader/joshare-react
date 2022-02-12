@@ -5,11 +5,15 @@ import { AiOutlineWhatsApp } from "react-icons/ai";
 import { BsTelegram } from "react-icons/bs";
 import { RiMessengerLine } from "react-icons/ri";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
+import { useParams } from "react-router-dom";
 import useUser from "../hooks/useUser";
 import toast from "react-hot-toast";
 
 export default function SharePage() {
-  const { pin } = useUser();
+  const { pin: userPin } = useUser();
+  const { pin: paramPin } = useParams();
+  const pin = userPin ? userPin : paramPin;
+  
   const link = `${process.env.REACT_APP_CLIENT_URL}/files/${pin}`;
   
   const copy = () => {

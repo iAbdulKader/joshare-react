@@ -7,39 +7,34 @@ export default function CountDown({expireDate}) {
   const [minutes, setMinutes] = useState("00");
   const [seconds, setSeconds] = useState("00");
   const [expired, setExpired] = useState(false);
-  const [isloading, setIsLoading] = useState(true);
   
   useEffect(() => {
     const expireTime = Date.parse(expireDate);
     
     function countDown(){
-      if(expireTime === "loading") setIsLoading(true)
-      else {
-        setIsLoading(false)
-        const nowTime = new Date().getTime();
-        var gap = expireTime - nowTime;
+      const nowTime = new Date().getTime();
+      let gap = expireTime - nowTime;
       
-        const second = 1000;
-        const minute = second * 60;
-        const hour = minute * 60;
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
         
-        let h = Math.floor(gap / hour);
-        let m = Math.floor((gap % (hour)) / (minute));
-        let s = Math.floor((gap % (minute)) / (second));
+      let h = Math.floor(gap / hour);
+      let m = Math.floor((gap % (hour)) / (minute));
+      let s = Math.floor((gap % (minute)) / (second));
         
-        var hr = h < 10 ? "0" + h : h;
-        var mn = m < 10 ? "0" + m : m;
-        var sc = s < 10 ? "0" + s : s;
+      var hr = h < 10 ? "0" + h : h;
+      var mn = m < 10 ? "0" + m : m;
+      var sc = s < 10 ? "0" + s : s;
         
-        if (h < 0 || h == null){
-           setExpired(true)
-        } else {
-           setHours(hr);
-           setMinutes(mn);
-           setSeconds(sc);
-           setExpired(false);
-        } 
-      }
+      if (h < 0 || h == null){
+         setExpired(true)
+      } else {
+         setHours(hr);
+         setMinutes(mn);
+         setSeconds(sc);
+         setExpired(false);
+      } 
     };
     
     countDown();
@@ -52,7 +47,7 @@ export default function CountDown({expireDate}) {
   
   return(
     <div className={styles.coundownContainer}>
-     {(isloading || !expireDate) ? (
+     {!expireDate ? (
      <Watch 
         color="#ff5757"
         height={30}
