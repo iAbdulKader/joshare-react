@@ -52,7 +52,7 @@ export default function CountDown({expireDate}) {
   
   return(
     <div className={styles.coundownContainer}>
-     {isloading ? (
+     {(isloading || !expireDate) ? (
      <Watch 
         color="#ff5757"
         height={30}
