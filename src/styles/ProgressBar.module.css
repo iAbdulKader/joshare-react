@@ -7,11 +7,13 @@
   width: calc(100% - 40px);
   max-width: 360px;
   height: 64px;
-  border: 1.5px solid var(--color-progress);
+  outline: 1.5px solid var(--color-progress);
+  padding: 0;
   margin: 0 auto;
   margin-bottom: 10px;
   border-radius: 5px;
   position: relative;
+  overflow: hidden;
 }
 .progressBar{
   background: var(--color-progress);
@@ -20,7 +22,6 @@
   transition: transform 250ms linear;
   transform: scaleX(0);
   transform-origin: left;
-  border-radius: 5px;
 }
 .upperSection{
   position: absolute;
