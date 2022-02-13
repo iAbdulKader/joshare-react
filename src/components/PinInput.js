@@ -9,7 +9,7 @@ import LoadingSpiner from "./LoadingSpiner";
 import { BiSearchAlt } from "react-icons/bi";
 
 export default function PinInput() {
-  const [pin, setPin] = useState(null);
+  const [pin, setPin] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const boxRef = useRef();
