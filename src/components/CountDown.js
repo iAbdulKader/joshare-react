@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Watch } from "react-loader-spinner";
 import styles from "../styles/Header.module.css";
+import { GlobalContext } from "../contexts/GlobalContext";
 
-export default function CountDown({expireDate}) {
+export default function CountDown() {
+  const { expire: expireDate } = useContext(GlobalContext);
+  
   const [hours, setHours] = useState("00");
   const [minutes, setMinutes] = useState("00");
   const [seconds, setSeconds] = useState("00");

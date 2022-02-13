@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react"; 
 import styles from "../styles/EmailModal.module.css";
 import Button from "./Button";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function EmailModal() {
+  const { emailSendNum } = useContext(GlobalContext);
+  
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   
   return (
     <div className={styles.container}>
       <div className={styles.infoDiv}>
-       <p>You can send only one email with one session<span className="highlight">.</span></p>
+       <p>You can send {emailSendNum} {emailSendNum > 1 ? "emails" : "email"}<span className="highlight">.</span></p>
       </div>
       <div className={styles.inputDiv}>
         <p>Sender</p>

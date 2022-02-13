@@ -39,6 +39,7 @@ export default function useAddTime() {
           expires: new Date(data.expire)
         });
       }
+      return data.expire;
     } catch (e) {
       setLoading(false);
       setError(e.message)
