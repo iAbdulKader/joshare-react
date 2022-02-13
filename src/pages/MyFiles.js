@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useCallback } from "react";
 import Header from "../components/Header";
 import PinHolder from "../components/PinHolder";
 import Files from "../components/Files";
@@ -17,6 +17,9 @@ export default function MyFiles(){
   
   const {user} = useGetFiles(pin);
    
+  const test = useCallback((time) => {
+    setAddTimeNum(time)
+  }, [])
   useEffect(() => {
     document.title = "My Files | joShare - File Sharing";
     
@@ -26,9 +29,10 @@ export default function MyFiles(){
   }, [pin, navigate])
   
   useEffect(() => {
-    console.log(user)
-    setAddTimeNum(user.timeChangeNum)
-  }, [user])
+    console.log("myfiles", user)
+   // setAddTimeNum(user.addTimeNum)
+    test(user.addTimeNum)
+  }, [user, test])
   
   return (
     <>
