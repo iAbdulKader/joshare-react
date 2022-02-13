@@ -19,7 +19,7 @@ export default function useAddTime() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Authorization": "Bearer" + " " + token,
+          "X-Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify({hour})
       })
@@ -32,7 +32,9 @@ export default function useAddTime() {
       } else {
         setLoading(false);
         toast.success(`${hour} hours added successfully.`)
-        cookie.set("token", data.token)
+        cookie.set("token", data.token, {
+          expires: new Date(data.expire)
+        })
       }
     } catch (e) {
       setLoading(false);
