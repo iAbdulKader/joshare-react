@@ -9,7 +9,7 @@ import Button from "./Button";
 import { Link } from "react-router-dom";
 import useSignUp from "../hooks/useSignUp";
 
-export default function Header({ showUpload = false, expire }) {
+export default function Header({ showUpload = false }) {
   const { loading, signup } = useSignUp();
   const [show, setShow] = useState(false)
   
@@ -36,7 +36,7 @@ export default function Header({ showUpload = false, expire }) {
         <div className={styles.buttonContainer}>
           {!showUpload ? 
           (<>
-            <CountDown expireDate={expire} />
+            <CountDown />
             <ShareButton toggle={toggle} />
             </>):
             (<Button 

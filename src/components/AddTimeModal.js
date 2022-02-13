@@ -6,18 +6,20 @@ import useAddTime from "../hooks/useAddTime";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function AddTimeModal() {
+  const { addTimeNum, setExpire } = useContext(GlobalContext);
+  
   const { loading, addTime } = useAddTime();
   const [hour, setHour] = useState(0);
-  const { addTimeNum } = useContext(GlobalContext);
   
   const options = []
   for (var i = 1; i <= 24; i++) {
     options.push(<option value={i} key={i} readOnly>{i} Hour</option>)
   }
   
-  const addTimeHandler = () => {
+  const addTimeHandler = async () => {
     if(hour > 0) {
-      addTime(hour)
+      let time = await addTime(hour);
+      setExpire(time)
     } else {
       toast.error("Select Time First.")
     }
@@ -26,7 +28,7 @@ export default function AddTimeModal() {
   return (
     <div className={`${styles.container} horizontal_center`}>
       <div className={styles.text}>
-        <p>Your files will be deleted autometically after <span className="highlight">24 hours</span> from creating your session. But You can <span className="highlight">extend</span> this expiry time upto additional <span className="highlight">24 hours</span>. To add time select how many hours you want to extend and click Add Time. <br /><br />Opportunity to add time <span className="highlight">{addTimeNum}</span>.</p>
+        <p>Your files will be deleted autometically after <span className="highlight">24 hours</span> from creating your session. But You can <span className="highlight">extend</span> this expiry time upto additional <span className="highlight">24 hours</span>. To add time select how many hours you want to extend and click Add Time. <br /><br />Attempts remaining <span className="highlight">{addTimeNum}</span>.</p>
       </div>
       
       <div className={styles.select}>

@@ -42,10 +42,11 @@ export default function GlobalProvider({ children }) {
     })
   }
   
-  function setEmailSendNum(isDone) {
+  function setEmailSendNum(isDone, number) {
     dispatch({
       type: "SET_EMAIL_SEND_NUM",
-      payload: isDone
+      payload: number,
+      isDone
     })
   }
   

@@ -1,4 +1,4 @@
-import { useEffect, useContext, useCallback } from "react";
+import { useEffect, useContext, useRef } from "react";
 import Header from "../components/Header";
 import PinHolder from "../components/PinHolder";
 import Files from "../components/Files";
@@ -13,13 +13,16 @@ import { GlobalContext } from "../contexts/GlobalContext";
 export default function MyFiles(){
   const navigate = useNavigate()
   const { pin, expire } = useUser();
-  const { setAddTimeNum } = useContext(GlobalContext);
+  const { setAddTimeNum, setEmailSendNum, setExpire } = useContext(GlobalContext);
   
-  const {user} = useGetFiles(pin);
+  const { user } = useGetFiles(pin);
    
-  const test = useCallback((time) => {
-    setAddTimeNum(time)
-  }, [])
+  const handleChange = useRef((data) => {
+    setAddTimeNum(true, data.addTimeNum);
+    setEmailSendNum(true, data.emailSendNum);
+    setExpire(expire);
+  })
+  
   useEffect(() => {
     document.title = "My Files | joShare - File Sharing";
     
@@ -29,14 +32,13 @@ export default function MyFiles(){
   }, [pin, navigate])
   
   useEffect(() => {
-    console.log("myfiles", user)
-   // setAddTimeNum(user.addTimeNum)
-    test(user.addTimeNum)
-  }, [user, test])
+    //console.log("myfiles", user)
+    handleChange.current(user)
+  }, [user])
   
   return (
     <>
-      <Header expire={expire} />
+      <Header />
       <PinHolder pin={pin} />
       <Files />
       <UtilityPalette />

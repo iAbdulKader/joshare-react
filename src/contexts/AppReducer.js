@@ -25,10 +25,7 @@ export default function AppReducer(state, action) {
       }
       
     case 'SET_EMAIL_SEND_NUM':
-      return {
-        ...state,
-        emailSendNum: action.payload ? state.emailSendNum - 1 : state.emailSendNum
-      }
+      return addEmailNum(state, action)
       
     case 'SET_ADD_TIME_NUM':
       return addTimeNum(state, action)
@@ -48,6 +45,20 @@ function addTimeNum(state, action) {
     return {
       ...state,
       addTimeNum: action.isDone ? state.addTimeNum - 1 : state.addTimeNum
+   }
+  }
+}
+
+function addEmailNum(state, action) {
+  if(action.isDone && action.payload){
+    return {
+      ...state,
+      addEmailNum: action.payload
+    }
+  } else {
+    return {
+      ...state,
+      addEmailNum: action.isDone ? state.addEmailNum - 1 : state.addEmailNum
    }
   }
 }
