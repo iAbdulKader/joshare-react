@@ -31,7 +31,7 @@ export default function RemoveUserModal() {
       
       <Button 
         loading={loading}
-        text="Add Time"
+        text="Remove User"
         handler={removeUser}
         divClass="utilityBtn"
       />

@@ -22,7 +22,7 @@ export default function EmailModal() {
       </div>
       
       <Button 
-        text="Add Time"
+        text="Send Email"
         handler={()=>console.log("time")}
         divClass="utilityBtn"
       />
