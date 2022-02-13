@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styles from "../styles/AddTimeModal.module.css";
 import toast from "react-hot-toast";
 import Button from "./Button";
 import useAddTime from "../hooks/useAddTime";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function AddTimeModal() {
   const { loading, addTime } = useAddTime();
   const [hour, setHour] = useState(0);
+  const { addTimeNum } = useContext(GlobalContext);
   
   const options = []
   for (var i = 1; i <= 24; i++) {
@@ -24,7 +26,7 @@ export default function AddTimeModal() {
   return (
     <div className={`${styles.container} horizontal_center`}>
       <div className={styles.text}>
-        <p>Your files will be deleted autometically after <span className="highlight">24 hours</span> from creating your session. But You can <span className="highlight">extend</span> this expiry time upto additional <span className="highlight">24 hours</span>. To add time select how many hours you want to extend and click Add Time. Although you can add time <span className="highlight">only once per session</span>.</p>
+        <p>Your files will be deleted autometically after <span className="highlight">24 hours</span> from creating your session. But You can <span className="highlight">extend</span> this expiry time upto additional <span className="highlight">24 hours</span>. To add time select how many hours you want to extend and click Add Time. <br /><br />Opportunity to add time <span className="highlight">{addTimeNum}</span>.</p>
       </div>
       
       <div className={styles.select}>

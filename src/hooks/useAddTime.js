@@ -1,10 +1,12 @@
 import cookie from "js-cookie";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import toast from "react-hot-toast";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function useAddTime() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const { setAddTimeNum } = useContext(GlobalContext);
 
   const addTime = async (hour) => {
     const token = cookie.get("token");
@@ -31,10 +33,11 @@ export default function useAddTime() {
         toast.error(data.msg);
       } else {
         setLoading(false);
-        toast.success(`${hour} hours added successfully.`)
+        setAddTimeNum(true);
+        toast.success(`${hour} hours added successfully.`);
         cookie.set("token", data.token, {
           expires: new Date(data.expire)
-        })
+        });
       }
     } catch (e) {
       setLoading(false);
