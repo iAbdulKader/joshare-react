@@ -19,7 +19,7 @@ export default function useAddTime() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Authorization": "Bearer" + " " + token,
+          "X-Authorization": `Bearer ${token}`,
         },
         body: JSON.stringify({hour})
       })
