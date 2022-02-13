@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Terms from "./pages/Terms";
 import HowToUse from "./pages/HowToUse";
 import Support from "./pages/Support";
+import GlobalProvider from "./contexts/GlobalContext";
 import Error from "./pages/Error";
 import { Routes, Route } from "react-router-dom";
 import ThemeButton from "./components/ThemeButton";
@@ -12,7 +13,7 @@ import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <>
+    <GlobalProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="myfiles" element={<MyFiles />} />
@@ -25,7 +26,7 @@ function App() {
         </Routes>
         <Toaster />
         <ThemeButton />
-    </>
+    </GlobalProvider>
   );
 }
 
