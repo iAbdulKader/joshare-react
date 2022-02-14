@@ -1,13 +1,19 @@
 import { useState, useContext } from "react"; 
 import styles from "../styles/EmailModal.module.css";
 import Button from "./Button";
+import useSendEmail from "../hooks/useSendEmail";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function EmailModal() {
   const { emailSendNum } = useContext(GlobalContext);
+  const { loading, sendEmail } = useSendEmail();
   
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
+  
+  const emailHandler = async () => {
+    await sendEmail(from, to);
+  }
   
   return (
     <div className={styles.container}>
@@ -25,8 +31,9 @@ export default function EmailModal() {
       </div>
       
       <Button 
+        loading={loading}
         text="Send Email"
-        handler={()=>console.log("time")}
+        handler={emailHandler}
         divClass="utilityBtn"
       />
       

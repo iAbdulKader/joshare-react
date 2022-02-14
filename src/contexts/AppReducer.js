@@ -53,12 +53,12 @@ function addEmailNum(state, action) {
   if(action.isDone && action.payload){
     return {
       ...state,
-      addEmailNum: action.payload
+      emailSendNum: action.payload
     }
   } else {
     return {
       ...state,
-      addEmailNum: action.isDone ? state.addEmailNum - 1 : state.addEmailNum
+      emailSendNum: action.isDone ? state.emailSendNum - 1 : state.emailSendNum
    }
   }
 }

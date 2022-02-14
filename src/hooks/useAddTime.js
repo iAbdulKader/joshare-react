@@ -11,7 +11,8 @@ export default function useAddTime() {
   const addTime = async (hour) => {
     const token = cookie.get("token");
     if(!token){
-      toast.error("Uncaught Error")
+      toast.error("Uncaught Error");
+      setError("Unauthorised")
       return null
     }
     
