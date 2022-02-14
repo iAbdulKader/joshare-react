@@ -1,9 +1,8 @@
 import styles from "../styles/SharePage.module.css";
 import QRCode from "react-qr-code";
-import { FiCopy } from "react-icons/fi";
+import { FiCopy, FiFacebook } from "react-icons/fi";
 import { AiOutlineWhatsApp } from "react-icons/ai";
-import { BsTelegram } from "react-icons/bs";
-import { RiMessengerLine } from "react-icons/ri";
+import { FaTelegramPlane } from "react-icons/fa";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import useUser from "../hooks/useUser";
@@ -15,6 +14,11 @@ export default function SharePage() {
   const pin = userPin ? userPin : paramPin;
   
   const link = `${process.env.REACT_APP_CLIENT_URL}/files/${pin}`;
+  const whatsAppLink = `https://api.whatsapp.com/send?text=Get My Files here. ${link}`;
+  const telegramLink = `https://telegram.me/share/url?url=${link}&text=Get My Files Here.`;
+  const fbLink = `https://www.facebook.com/sharer/sharer.php?u=${link}&quote=Get my files here.`
+  const emailLink = `mailto:?subject=Get My Files Here&body= Hello, Get my files here ${link}`;
+  
   
   const copy = () => {
     navigator.clipboard.writeText(link)
@@ -43,19 +47,27 @@ export default function SharePage() {
       
       <div className={styles.socialShare}>
         <div className={styles.icons}>
-          <AiOutlineWhatsApp />
+          <a href={whatsAppLink} target="_blank" rel="noreferrer">
+            <AiOutlineWhatsApp />
+          </a>
         </div>
         
         <div className={styles.icons}>
-          <BsTelegram />
+          <a href={telegramLink} target="_blank" rel="noreferrer">
+            <FaTelegramPlane />
+          </a>
         </div>
         
         <div className={styles.icons}>
-          <RiMessengerLine />
+          <a href={fbLink} target="_blank" rel="noreferrer">
+            <FiFacebook />
+          </a>
         </div>
         
         <div className={styles.icons}>
-          <MdOutlineMarkEmailRead />
+          <a href={emailLink}>
+            <MdOutlineMarkEmailRead />
+          </a>
         </div>
       </div>
     </div>

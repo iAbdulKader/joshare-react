@@ -33,6 +33,10 @@
 .socialShare .icons{
   margin: auto 10px;
 }
+.socialShare .icons a{
+  text-decoration: none;
+  color: #121212;
+}
 .shareText h3 {
   margin: 0;
   padding: 0;
