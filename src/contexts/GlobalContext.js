@@ -51,6 +51,13 @@ export default function GlobalProvider({ children }) {
     })
   }
   
+  function deleteStatus(id){
+    dispatch({
+      type: "DELETE_STATUS",
+      payload: id
+    })
+  }
+  
   function setExpire(time) {
     dispatch({
       type: "SET_EXPIRE",
@@ -79,6 +86,7 @@ export default function GlobalProvider({ children }) {
     status: state.status,
     addStatus,
     changeStatus,
+    deleteStatus,
     expire: state.expire,
     emailSendNum: state.emailSendNum,
     addTimeNum: state.addTimeNum,

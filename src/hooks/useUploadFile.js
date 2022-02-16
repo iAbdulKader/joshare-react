@@ -4,10 +4,11 @@ import toast from "react-hot-toast";
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { storage } from "../lib/upload/firebase";
 import useUser from "./useUser";
+import postUpload from "../lib/postUpload";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function useUploadFile(file) {
-  const { changeStatus } = useContext(GlobalContext);
+  const { changeStatus, deleteStatus, addFile } = useContext(GlobalContext);
   
   const token = cookie.get("token");
   const { pin } = useUser();
@@ -30,10 +31,16 @@ export default function useUploadFile(file) {
         console.log(error);
       }, () => {
         getDownloadURL(uploadTask.snapshot.ref).then(url => {
-          postUpload(token, fileObj.id, url, fileObj.file.name, fileObj.ext[1], fileObj.size, () => {
-            console.log("server Successful ")
+ 
+          postUpload(token, fileObj.id, url, fileObj.file.name, fileObj.ext[1], fileObj.size, (file) => {
+            console.log("hello")
+            toast.success("Upload Successful");
+            addFile(file);
+            setTimeout(function() {
+              deleteStatus(fileObj.id)
+            }, 1000);
           });
-          console.log("Uploaded", url)
+          
         })
       
     });
@@ -48,30 +55,4 @@ export default function useUploadFile(file) {
   return {
     uploadFile
   }
-}
-
-const postUpload = async (token, id, url, name, ext, size, callback) => {
-  try {
-    let response = await fetch(`${process.env.REACT_APP_SERVER}/api/user/file`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Authorization": `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        id,
-        url,
-        name,
-        ext: ext || "",
-        size,
-      })
-    })
-    
-    let data = await response.json();
-    console.log(data);
-    callback();
-  } catch (e) {
-    console.log(e.message)
-  }
-  callback()
 }

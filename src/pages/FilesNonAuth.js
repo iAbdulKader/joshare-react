@@ -18,7 +18,9 @@ export default function FilesNonAuth() {
   
   const handleChange = useRef((data) => {
     setExpire(data.expire);
-    addFiles(data.files)
+    if(data.files) {
+      addFiles(data.files);
+    }
   })
   
   useEffect(() => {

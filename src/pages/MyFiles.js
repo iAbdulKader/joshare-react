@@ -13,13 +13,16 @@ import { GlobalContext } from "../contexts/GlobalContext";
 export default function MyFiles(){
   const navigate = useNavigate()
   const { pin, expire } = useUser();
-  const { setAddTimeNum, setEmailSendNum, setExpire } = useContext(GlobalContext);
+  const { addFiles, setAddTimeNum, setEmailSendNum, setExpire } = useContext(GlobalContext);
   
   const { user } = useGetFiles(pin);
    
   const handleChange = useRef((data) => {
     setAddTimeNum(true, data.addTimeNum);
     setEmailSendNum(true, data.emailSendNum);
+    if(data.files) {
+      addFiles(data.files)
+    }
     setExpire(expire);
   })
   
@@ -32,7 +35,6 @@ export default function MyFiles(){
   }, [pin, navigate])
   
   useEffect(() => {
-    //console.log("myfiles", user)
     handleChange.current(user)
   }, [user])
   

@@ -29,6 +29,12 @@ export default function AppReducer(state, action) {
         ...state,
         status: statusChange(state.status, action.id, action.field, action.payload)
       }
+    
+    case 'DELETE_STATUS':
+      return {
+        ...state,
+        status: state.status.filter(stat=> stat.id !== action.payload)
+      }
       
     case 'SET_EXPIRE':
       return {
