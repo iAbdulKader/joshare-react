@@ -9,13 +9,25 @@ export default function AppReducer(state, action) {
     case 'ADD_FILE':
       return  {
          ...state,
-         files: state.files.push(action.payload)
+         files: [...state.files, action.payload]
       }
     
     case 'DELETE_FILE':
       return {
          ...state,
          files: state.files.filter((file) => file.id !== action.payload)
+      }
+      
+    case 'ADD_STATUS':
+      return   {
+        ...state,
+        status: [...state.status, action.payload]
+      }
+      
+    case 'CHANGE_STATUS':
+      return {
+        ...state,
+        status: statusChange(state.status, action.id, action.field, action.payload)
       }
       
     case 'SET_EXPIRE':
@@ -32,6 +44,19 @@ export default function AppReducer(state, action) {
       
     default:
       return state;
+  }
+}
+
+function statusChange(statusArr, id, field, data){
+  if(statusArr.length === 0) {
+    return []
+  } else {
+    return statusArr.map(stat => {
+      return stat.id === id ? {
+        ...stat,
+        [field]: data
+      } : stat
+    })
   }
 }
 

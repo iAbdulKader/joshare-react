@@ -3,7 +3,7 @@ import AppReducer from "./AppReducer";
 
 const initialState = {
   files : [],
-  uploads: [],
+  status: [],
   expire: "",
   emailSendNum: 2,
   addTimeNum: 2
@@ -35,6 +35,22 @@ export default function GlobalProvider({ children }) {
     })
   }
   
+  function addStatus(status){
+    dispatch({
+      type: "ADD_STATUS",
+      payload: status,
+    })
+  }
+  
+  function changeStatus(id, field, value){
+    dispatch({
+      type: "CHANGE_STATUS",
+      id,
+      field,
+      payload: value,
+    })
+  }
+  
   function setExpire(time) {
     dispatch({
       type: "SET_EXPIRE",
@@ -60,7 +76,9 @@ export default function GlobalProvider({ children }) {
   
   const value = {
     files: state.files,
-    uploads: state.uploads,
+    status: state.status,
+    addStatus,
+    changeStatus,
     expire: state.expire,
     emailSendNum: state.emailSendNum,
     addTimeNum: state.addTimeNum,

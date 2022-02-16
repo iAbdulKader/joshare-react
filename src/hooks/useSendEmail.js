@@ -22,7 +22,7 @@ export default function useSendEmail() {
       toast.error("Email Sending Limit Exceeded.")
       return;
     }
-    if(!(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(to.trim()))){
+    if(!(/^[a-zA-Z0-9.-_]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(to.trim()))){
       toast.error("Invalid Email.")
       return;
     }

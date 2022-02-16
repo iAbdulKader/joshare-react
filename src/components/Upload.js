@@ -1,22 +1,52 @@
-import { useRef } from "react";
+import { customAlphabet } from "nanoid";
+import pLimit from 'p-limit';
+import { useRef, useContext } from "react";
+import calculateSize from "../lib/calculateSize";
 import styles from "../styles/Upload.module.css";
 import FileIcon from "./FileIcon";
 import ProgressBars from "./ProgressBars";
+import { GlobalContext } from "../contexts/GlobalContext";
+import useUploadFile from "../hooks/useUploadFile";
 
 export default function Upload() {
+  let promises = [];
+  const limit = pLimit(3);
+  
   const fileRef = useRef();
-  const fileArr = [];
+  const { addStatus } = useContext(GlobalContext);
+  const { uploadFile } = useUploadFile();
   
   const triggerFile = () => {
     fileRef.current.click()
   }
   
-  const startUpload = e => {
+  
+  const handleChange = async e => {
     
     for(let file of e.target.files){
-      fileArr.push(file)
+      const ext = /(?:\.([^.]+))?$/.exec(file.name);
+      const size = calculateSize(file.size);
+      const id = customAlphabet("0123456789abcdefghijklmnopqrstuvwx", 5)();
+      
+      addStatus({
+        id,
+        ext,
+        name: file.name,
+        size,
+        status: "none",
+        progress: 0
+      })
+      
+      const fileObj = {
+        file,
+        ext,
+        id, 
+        size,
+      }
+      promises.push(limit(() => uploadFile(fileObj)));
     }
-    console.log(fileArr)
+    console.log("uploading")
+    await Promise.all(promises)
   }
   
   return (
@@ -32,7 +62,7 @@ export default function Upload() {
              <input 
                ref={fileRef} 
                type="file" 
-               onChange={startUpload}
+               onChange={handleChange}
                multiple
              />
              <div className={styles.textContainer}>
