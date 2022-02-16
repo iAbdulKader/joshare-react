@@ -1,4 +1,6 @@
-const postUpload = async (token, id, url, name, ext, size, callback) => {
+import serverReq from "../lib/serverReq";
+
+const postUpload = async (token, id, url, name, ext, size, callback, errorCallback) => {
   try {
     const fileObj = {
       id,
@@ -8,17 +10,13 @@ const postUpload = async (token, id, url, name, ext, size, callback) => {
       size
     }
   
-    let response = await fetch(`${process.env.REACT_APP_SERVER}/api/user/file`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Authorization": `Bearer ${token}`,
-      },
-      body: JSON.stringify(fileObj)
-    })
+    let data = await serverReq("/api/user/file", "POST", token, fileObj)
     
-    await response.json();
-    callback(fileObj);
+    if(data.success === true) {
+      callback(fileObj);
+    } else {
+      errorCallback(fileObj);
+    }
   } catch (e) {
     console.log(e.message)
   }

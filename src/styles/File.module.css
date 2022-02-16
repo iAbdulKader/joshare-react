@@ -41,6 +41,12 @@
   display: flex;
   margin-right: 16px;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.btnContainer .deleteBtn:hover,
+.btnContainer .downloadBtn:hover{
+  color: var(--color-button-border);
 }
 .textContainer{
   margin-left: 8px;
@@ -49,5 +55,4 @@
 }
 .downloadBtn {
   margin-left: 10px;
-  font-size: 20px;
 }

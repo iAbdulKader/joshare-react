@@ -25,7 +25,7 @@ export default function useUploadFile(file) {
           
           const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
           changeStatus(fileObj.id, "progress", prog)
-          console.log(prog)
+          
       }, error => {
         toast.error("Upload Fail")
         console.log(error);
@@ -33,23 +33,23 @@ export default function useUploadFile(file) {
         getDownloadURL(uploadTask.snapshot.ref).then(url => {
  
           postUpload(token, fileObj.id, url, fileObj.file.name, fileObj.ext[1], fileObj.size, (file) => {
-            console.log("hello")
             toast.success("Upload Successful");
             addFile(file);
             setTimeout(function() {
               deleteStatus(fileObj.id)
             }, 1000);
+          }, (fileObj) => {
+            toast.erorr("Upload Failed. Try Again");
+            setTimeout(function() {
+              deleteStatus(fileObj.id)
+            }, 1000);
           });
-          
         })
-      
     });
     return uploadTask;
     } else {
       console.log("error")
-      
     }
-    
   }
   
   return {

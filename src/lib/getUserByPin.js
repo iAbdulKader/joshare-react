@@ -1,6 +1,7 @@
+import serverReq from "../lib/serverReq";
+
 export default async function getUserByPin(pin) {
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/api/files/${pin}`)
-  const userData = await response.json();
+  const userData = await serverReq(`/api/files/${pin}`, "GET");
   
   if(userData.success === false) {
     return false;

@@ -9,7 +9,7 @@ import useGetFiles from "../hooks/useGetFiles";
 import { GlobalContext } from "../contexts/GlobalContext";
 
 export default function FilesNonAuth() {
-  const { setExpire, addFiles } = useContext(GlobalContext);
+  const { setExpire, addFiles, clearFiles } = useContext(GlobalContext);
   
   const { pin } = useParams();
   const navigate = useNavigate();
@@ -21,6 +21,10 @@ export default function FilesNonAuth() {
     if(data.files) {
       addFiles(data.files);
     }
+  })
+  
+  const clearFilesRef = useRef(() => {
+    clearFiles()
   })
   
   useEffect(() => {
@@ -40,6 +44,9 @@ export default function FilesNonAuth() {
     if(user.success === false) {
       navigate("/notfound");
     }
+    
+    const cleanup = clearFilesRef.current;
+    return cleanup;
   }, [user, navigate])
   
   useEffect(() => {

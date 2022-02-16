@@ -35,6 +35,12 @@ export default function GlobalProvider({ children }) {
     })
   }
   
+  function clearFiles() {
+    dispatch({
+      type: "CLEAR_FILES"
+    })
+  }
+  
   function addStatus(status){
     dispatch({
       type: "ADD_STATUS",
@@ -93,6 +99,7 @@ export default function GlobalProvider({ children }) {
     addFiles,
     addFile,
     deleteFile,
+    clearFiles,
     setExpire,
     setEmailSendNum,
     setAddTimeNum

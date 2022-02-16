@@ -18,6 +18,12 @@ export default function AppReducer(state, action) {
          files: state.files.filter((file) => file.id !== action.payload)
       }
       
+    case 'CLEAR_FILES':
+      return {
+         ...state,
+         files: []
+      }
+      
     case 'ADD_STATUS':
       return   {
         ...state,

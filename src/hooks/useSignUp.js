@@ -2,10 +2,10 @@ import { useState } from "react";
 import cookie from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import serverReq from "../lib/serverReq";
 
 export default function useSignUp() {
   const navigate = useNavigate();
-  const serverUrl = process.env.REACT_APP_SERVER;
   
   const [loading, setLoading] = useState(false);
   
@@ -17,10 +17,7 @@ export default function useSignUp() {
     } else {
       toast.loading("Creating User Space");
       
-      const response = await fetch(`${serverUrl}/api/signup`, {
-        method: "POST"
-      })
-      let data = await response.json();
+      const data = await serverReq("/api/signup", "POST")
       
       if(data.success === "true") {
         cookie.set("token", data.token, {

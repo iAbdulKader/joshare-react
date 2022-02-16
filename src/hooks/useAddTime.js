@@ -2,6 +2,7 @@ import cookie from "js-cookie";
 import { useState, useContext } from "react";
 import toast from "react-hot-toast";
 import { GlobalContext } from "../contexts/GlobalContext";
+import serverReq from "../lib/serverReq";
 
 export default function useAddTime() {
   const [loading, setLoading] = useState(false);
@@ -18,16 +19,8 @@ export default function useAddTime() {
     
     try {
       setLoading(true)
-      const response = await fetch(`${process.env.REACT_APP_SERVER}/api/user/addtime`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Authorization": `Bearer ${token}`,
-        },
-        body: JSON.stringify({hour})
-      })
-      
-      const data = await response.json();
+      const data = await serverReq("/api/user/addtime", "POST", token, {hour});
+
       if(data.success === false){
         setLoading(false);
         setError(data.msg);

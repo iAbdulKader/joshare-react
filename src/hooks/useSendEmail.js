@@ -2,6 +2,7 @@ import cookie from "js-cookie";
 import { useState, useContext } from "react";
 import toast from "react-hot-toast";
 import { GlobalContext } from "../contexts/GlobalContext";
+import serverReq from "../lib/serverReq";
 
 export default function useSendEmail() {
   const [loading, setLoading] = useState(false);
@@ -29,19 +30,11 @@ export default function useSendEmail() {
     
     try {
       setLoading(true);
-      let response = await fetch(`${process.env.REACT_APP_SERVER}/api/user/email`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Authorization": `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          from: from.trim(),
-          to: to.trim()
-        })
+      let data = await serverReq("/api/user/email", "POST", token, {
+        from: from.trim(),
+        to: to.trim()
       })
       
-      const data = await response.json();
       if(data.success === true) {
         setLoading(false);
         setEmailSendNum(true);

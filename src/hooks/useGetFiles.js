@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import serverReq from "../lib/serverReq";
 
 export default function useGetFiles(pin) {
   const [loading, setLoading] = useState(true);
@@ -8,9 +9,7 @@ export default function useGetFiles(pin) {
   useEffect(() => {
       const getFiles = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_SERVER}/api/files/${pin}`);
-        
-        const data = await response.json()
+        const data = await serverReq(`/api/files/${pin}`, "GET");
         setLoading(false);
         setUser(data);
       } catch (e) {

@@ -13,7 +13,7 @@ import { GlobalContext } from "../contexts/GlobalContext";
 export default function MyFiles(){
   const navigate = useNavigate()
   const { pin, expire } = useUser();
-  const { addFiles, setAddTimeNum, setEmailSendNum, setExpire } = useContext(GlobalContext);
+  const { addFiles, clearFiles, setAddTimeNum, setEmailSendNum, setExpire } = useContext(GlobalContext);
   
   const { user } = useGetFiles(pin);
    
@@ -26,6 +26,10 @@ export default function MyFiles(){
     setExpire(expire);
   })
   
+  const clearFilesRef = useRef(() => {
+    clearFiles()
+  })
+  
   useEffect(() => {
     document.title = "My Files | joShare - File Sharing";
     
@@ -36,6 +40,9 @@ export default function MyFiles(){
   
   useEffect(() => {
     handleChange.current(user)
+    
+    const cleanup = clearFilesRef.current;
+    return cleanup;
   }, [user])
   
   return (
