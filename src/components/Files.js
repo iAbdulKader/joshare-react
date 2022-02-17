@@ -6,7 +6,7 @@ import { GlobalContext } from "../contexts/GlobalContext";
 import useGetFiles from "../hooks/useGetFiles";
 import useUser from "../hooks/useUser";
 
-export default function Files({auth}) {
+export default function Files({ auth }) {
   const { files } = useContext(GlobalContext);
   const { pin } = useUser();
   const { loading } = useGetFiles(pin);

@@ -18,6 +18,7 @@ export default function FilesNonAuth() {
   
   const handleChange = useRef((data) => {
     setExpire(data.expire);
+    
     if(data.files) {
       addFiles(data.files);
     }
@@ -45,12 +46,13 @@ export default function FilesNonAuth() {
       navigate("/notfound");
     }
     
-    const cleanup = clearFilesRef.current;
-    return cleanup;
   }, [user, navigate])
   
   useEffect(() => {
     handleChange.current(user)
+
+    const cleanup = clearFilesRef.current;
+    return cleanup;
   }, [user])
   
   return (

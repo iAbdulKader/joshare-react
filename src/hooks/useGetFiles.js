@@ -10,8 +10,8 @@ export default function useGetFiles(pin) {
       const getFiles = async () => {
       try {
         const data = await serverReq(`/api/files/${pin}`, "GET");
-        setLoading(false);
         setUser(data);
+        setLoading(false);
       } catch (e) {
         setLoading(false)
         setError(e.message)

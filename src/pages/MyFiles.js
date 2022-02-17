@@ -21,7 +21,7 @@ export default function MyFiles(){
     setAddTimeNum(true, data.addTimeNum);
     setEmailSendNum(true, data.emailSendNum);
     if(data.files) {
-      addFiles(data.files)
+      addFiles(data.files);
     }
     setExpire(expire);
   })
