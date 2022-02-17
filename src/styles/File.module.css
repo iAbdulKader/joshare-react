@@ -56,3 +56,10 @@
 .downloadBtn {
   margin-left: 10px;
 }
+
+/* NoFile */
+.noFileWrapper{
+  color: var(--color-text-primary);
+  margin: 15px auto;
+  font-size: 12px;
+}

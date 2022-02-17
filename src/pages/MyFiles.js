@@ -21,7 +21,11 @@ export default function MyFiles(){
     setAddTimeNum(true, data.addTimeNum);
     setEmailSendNum(true, data.emailSendNum);
     if(data.files) {
-      addFiles(data.files);
+      if(data.files.length === 0){
+        addFiles("You Haven’t Uploaded Any Files Yet")
+      } else {
+        addFiles(data.files);
+      }
     }
     setExpire(expire);
   })

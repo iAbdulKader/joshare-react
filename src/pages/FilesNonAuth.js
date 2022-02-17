@@ -20,7 +20,11 @@ export default function FilesNonAuth() {
     setExpire(data.expire);
     
     if(data.files) {
-      addFiles(data.files);
+      if(data.files.length === 0){
+        addFiles("Files Haven’t Been Uploaded Yet.")
+      } else {
+        addFiles(data.files);
+      }
     }
   })
   

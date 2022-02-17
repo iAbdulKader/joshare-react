@@ -9,13 +9,13 @@ export default function AppReducer(state, action) {
     case 'ADD_FILE':
       return  {
          ...state,
-         files: [...state.files, action.payload]
+         files: addFile(state.files, action.payload)
       }
     
     case 'DELETE_FILE':
       return {
          ...state,
-         files: state.files.filter((file) => file.id !== action.payload)
+         files: deleteFile(state.files, action.payload)
       }
       
     case 'CLEAR_FILES':
@@ -56,6 +56,22 @@ export default function AppReducer(state, action) {
       
     default:
       return state;
+  }
+}
+
+function addFile(files, payload) {
+  if(typeof files === "string"){
+    return [payload]
+  } else {
+    return [...files, payload]
+  }
+}
+
+function deleteFile(files, payload) {
+  if(files.length === 1){
+    return "You Haven’t Uploaded Files Any Files Yet."
+  } else {
+    return files.filter((file) => file.id !== payload)
   }
 }
 
