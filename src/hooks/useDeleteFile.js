@@ -14,12 +14,15 @@ export default function useDeleteFile() {
       return
     }
     try {
+      toast.loading("Deleting")
       let response = await serverReq(`/api/user/file/${id}`, "DELETE", token);
       
       if(response.success === true) {
+        toast.remove();
         toast.success("Deleted Successfully");
         deleteFileFromContext(id);
       } else {
+        toast.remove();
         toast.error("Failed Try Again")
       }
     } catch (e) {

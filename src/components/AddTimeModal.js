@@ -19,7 +19,9 @@ export default function AddTimeModal() {
   const addTimeHandler = async () => {
     if(hour > 0) {
       let time = await addTime(hour);
-      setExpire(time)
+      if(time){
+        setExpire(time)
+      }
     } else {
       toast.error("Select Time First.")
     }
