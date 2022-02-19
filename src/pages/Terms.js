@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Layout from "../layout";
+import { PageHeader } from "./HowToUse.js";
 
 export default function Terms() {
   useEffect(() => {
@@ -8,7 +9,7 @@ export default function Terms() {
   
   return (
     <Layout>
-      Terms
+      <PageHeader text="Terms & Conditions" />
     </Layout>
     )
 }

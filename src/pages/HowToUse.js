@@ -3,6 +3,17 @@ import Layout from "../layout";
 import TutorialContainer from "../components/TutorialContainer";
 import styles from "../styles/HowToUse.module.css";
 
+export function PageHeader({text}) {
+  return (
+    <div className="center">
+      <div className={styles.headerBox}>
+        <h2>{text}<span className="highlight">.</span></h2>
+        <div className={styles.headerLine}></div>
+      </div>
+    </div>
+    )
+}
+
 export default function HowToUse() {
   useEffect(() => {
     document.title = "How To Use | joShare - File Sharing";
@@ -10,14 +21,10 @@ export default function HowToUse() {
   
   return (
     <Layout>
-      <div className="center">
-        <div className={styles.headerBox}>
-          <h2>How To Use<span className="highlight">.</span></h2>
-          <div className={styles.headerLine}></div>
-        </div>
-      </div>
+      <PageHeader text="How To Use" />
       
-      <div style={{width: "90%", maxWidth: "600px", height: "100%", padding: "0", margin: "30px auto 50px auto" }}>
+      <div className={styles.container}>
+      
         <TutorialContainer img="1">
          <p>To <span className="highlight">Share</span> files press <span className="highlight">Upload Files</span>.</p>
          <p>This will take you to your dashboard where you will do everything.</p>
@@ -71,7 +78,7 @@ export default function HowToUse() {
         </TutorialContainer>
         
         <TutorialContainer img="12">
-         <p>This is user session removal wizard. This is also self explanatory. Read the info displayed, gou will understand.</p>
+         <p>This is user session removal wizard. This is also self explanatory. Read the info displayed, you will understand.</p>
         </TutorialContainer>
       </div>
     </Layout>

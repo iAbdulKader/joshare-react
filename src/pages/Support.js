@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Layout from "../layout";
+import { PageHeader } from "./HowToUse.js"
 
 export default function Support() {
   useEffect(() => {
@@ -8,7 +9,7 @@ export default function Support() {
   
   return (
     <Layout>
-      Support
+      <PageHeader text="Support" />
     </Layout>
     )
 }
