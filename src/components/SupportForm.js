@@ -1,11 +1,26 @@
 import { useState } from "react";
 import styles from "../styles/SupportForm.module.css";
 import Button from "./Button";
+import useSupport from "../hooks/useSupport";
 
 export default function SupportForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
+  
+  const { loading, submitSupport } = useSupport();
+  
+  const handler = async () => {
+    await submitSupport({
+      name,
+      email,
+      description
+    })
+    
+    setName("");
+    setEmail("");
+    setDescription("")
+  }
   
   return(
     <div className={styles.container}>
@@ -43,9 +58,9 @@ export default function SupportForm() {
         </div>
         
         <Button 
-          loading={false}
+          loading={loading}
           text="Submit"
-          handler={() => console.log("Hello")}
+          handler={handler}
           divClass="utilityBtn"
           style={{margin: "16px auto 0 auto"}}
         />
