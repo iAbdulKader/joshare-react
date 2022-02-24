@@ -80,6 +80,7 @@ export default function HowToUse() {
         <TutorialContainer img="12">
          <p>This is user session removal wizard. This is also self explanatory. Read the info displayed, you will understand.</p>
         </TutorialContainer>
+        <br />
       </div>
     </Layout>
     )

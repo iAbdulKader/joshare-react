@@ -29,3 +29,29 @@
   color: var(--color-button-border);
   cursor: pointer;
 }
+
+.adminInfo{
+  width: 100%;
+}
+.adminText h3{
+  text-align: center;
+  color: var(--color-button-border);
+}
+.adminText h4{
+  text-align: center;
+  color: var(--color-text-primary);
+}
+.adminLink {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 30px;
+}
+
+.adminLink a{
+  text-decoration: none;
+  color: var(--color-text-primary);
+  margin: auto auto;
+}

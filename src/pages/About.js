@@ -4,6 +4,8 @@ import Layout from "../layout";
 import { PageHeader } from "./HowToUse.js";
 import Logo from "../components/Logo";
 import { Link } from "react-router-dom";
+import { AiOutlineTwitter, AiOutlineGithub } from "react-icons/ai";
+import { FaDev } from "react-icons/fa";
 
 export default function About() {
   useEffect(() => {
@@ -37,6 +39,18 @@ export default function About() {
         <div className={styles.textBox}>
           <h3>Caution !</h3>
           <p>Do not upload sensitive files. Don't upload copyrighted contents. We can't guarantee any uncaught error or server crash.<br /><br />Your Files will get automatically deleted after expiry time which is shown on dashboard's countdown.<br /><br />For more about Privacy related info <Link to="/terms">Read This</Link></p>
+        </div>
+        
+        <div className={styles.adminInfo}>
+          <div className={styles.adminText}>
+            <h3>Created By</h3>
+            <h4>Abdul Kader</h4>
+          </div>
+          <div className={styles.adminLink}>
+            <a href="https://github.com/iAbdulKader" target="_blank" rel="noreferrer"><AiOutlineGithub /></a>
+            <a href="https://twitter.com/itsabdulkader" target="_blank" rel="noreferrer"><AiOutlineTwitter /></a>
+            <a href="https://dev.to/itsabdulkader" target="_blank" rel="noreferrer"><FaDev /></a>
+          </div>
         </div>
       </div>
     </Layout>
