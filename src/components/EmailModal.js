@@ -12,7 +12,7 @@ export default function EmailModal() {
   const [to, setTo] = useState("");
   
   const emailHandler = async () => {
-    await sendEmail(from, to);
+    await sendEmail(from, to, setFrom, setTo);
   }
   
   return (

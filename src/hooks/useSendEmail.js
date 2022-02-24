@@ -10,7 +10,7 @@ export default function useSendEmail() {
   const { emailSendNum, setEmailSendNum } = useContext(GlobalContext);
   
   
-  const sendEmail = async (from, to) => {
+  const sendEmail = async (from, to, setFrom, setTo) => {
     const token = cookie.get("token");
     
     if(!token){
@@ -38,6 +38,8 @@ export default function useSendEmail() {
       if(data.success === true) {
         setLoading(false);
         setEmailSendNum(true);
+        setFrom("");
+        setTo("");
         toast.success("Email Sent Successfully.");
       } else {
         setLoading(false);
