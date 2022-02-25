@@ -70,3 +70,9 @@
   margin: 0;
   margin-bottom: 6px;
 }
+.error{
+  color: #ff3333;
+  font-size: 11px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}

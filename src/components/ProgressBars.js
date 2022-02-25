@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, Fragment } from "react";
 import ProgressBar from "./ProgressBar";
 import styles from "../styles/ProgressBar.module.css";
 import { GlobalContext } from "../contexts/GlobalContext";
@@ -12,11 +12,11 @@ export default function ProgressBars () {
     <div className={styles.container}>
      {status.map(fileInfo => {
        return (
-       <>
+       <Fragment key={fileInfo.id}>
          <Slide top>
-          <ProgressBar data={fileInfo} key={fileInfo.id} />
+          <ProgressBar data={fileInfo} />
          </Slide>
-       </>
+       </Fragment>
      )})}
     </div>
     )

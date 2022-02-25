@@ -8,18 +8,16 @@ export default function SupportForm() {
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   
-  const { loading, submitSupport } = useSupport();
+  const { loading, submitSupport, error } = useSupport();
   
-  const handler = async () => {
-    await submitSupport({
-      name,
-      email,
-      description
-    })
+  const handlerFunc = async () => {
+    let success = await submitSupport(name.trim(), email.trim(), description.trim())
     
-    setName("");
-    setEmail("");
-    setDescription("")
+    if(success === true){
+      setName("")
+      setEmail("")
+      setDescription("")
+    }
   }
   
   return(
@@ -34,8 +32,12 @@ export default function SupportForm() {
           <input 
             type="text" 
             value={name} 
-            onChange={(e)=>setName(e.target.value)} 
+            onChange={(e)=> {
+              setName(e.target.value);
+              error.name = "";
+            }} 
             placeholder="Your Name" />
+          <div className={styles.error}>{error.name}</div>
         </div>
         
         <div className={styles.inputDiv}>
@@ -43,24 +45,32 @@ export default function SupportForm() {
           <input 
             type="email" 
             value={email} 
-            onChange={(e)=>setEmail(e.target.value)} 
+            onChange={(e)=> {
+              setEmail(e.target.value);
+              error.email = "";
+            }} 
             placeholder="Your Email" />
+          <div className={styles.error}>{error.email}</div>
         </div>
         
         <div className={styles.inputDiv}>
           <p>Description</p>
           <textarea 
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => {
+              setDescription(e.target.value);
+              error.description = "";
+            }}
             placeholder="Description"
             rows={12}
           />
+          <div className={styles.error}>{error.description}</div>
         </div>
         
         <Button 
           loading={loading}
           text="Submit"
-          handler={handler}
+          handler={handlerFunc}
           divClass="utilityBtn"
           style={{margin: "16px auto 0 auto"}}
         />
