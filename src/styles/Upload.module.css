@@ -70,13 +70,13 @@
   transform: translateY(0);
   transition: all 300ms ease-in-out;
 }
-.icons:hover .right{
+.uploadDotted.drag .right{
   transform: rotate(10deg) scale(0.9) translateX(20px);
 }
-.icons:hover .left{
+.uploadDotted.drag .left{
   transform: rotate(-10deg) scale(0.9) translateX(-20px);
 }
-.icons:hover .center {
+.uploadDotted.drag .center {
   transform: translateY(-5px);
 }
 .container h4{

@@ -13,6 +13,7 @@ export default function Upload() {
   const limit = pLimit(3);
   
   const fileRef = useRef();
+  const dragRef = useRef();
   const { addStatus } = useContext(GlobalContext);
   const { uploadFile } = useUploadFile();
   
@@ -21,9 +22,12 @@ export default function Upload() {
   }
   
   
-  const handleChange = async e => {
-    
-    for(let file of e.target.files){
+  const handleChange = e => {
+    handleFiles(e.target.files)
+  }
+  
+  const handleFiles = async (files) => {
+    for(let file of files){
       const ext = /(?:\.([^.]+))?$/.exec(file.name);
       const size = calculateSize(file.size);
       const id = customAlphabet("0123456789abcdefghijklmnopqrstuvwx", 5)();
@@ -45,15 +49,41 @@ export default function Upload() {
       }
       promises.push(limit(() => uploadFile(fileObj)));
     }
-    console.log("uploading")
-    await Promise.all(promises)
+    
+    await Promise.all(promises);
+  }
+  
+  const dragOver = (e) => {
+    e.preventDefault();
+  }
+
+  const dragEnter = (e) => {
+      e.preventDefault();
+      dragRef.current.classList.add("drag");
+  }
+  
+  const dragLeave = (e) => {
+      e.preventDefault();
+      dragRef.current.classList.remove("drag");
+  }
+  
+  const fileDrop = (e) => {
+      e.preventDefault();
+      handleChange(e.dataTransfer.files);
   }
   
   return (
     <div className={styles.main}>
       <div className={`${styles.uploadWrapper} horizontal_center`}>
-        <div className={styles.uploadDotted}>
-          <div onDrag={triggerFile} className={styles.container}>
+        <div 
+          className={styles.uploadDotted}
+          onDragOver={dragOver}
+          onDragEnter={dragEnter}
+          onDragLeave={dragLeave}
+          onDrop={fileDrop}
+          ref={dragRef}
+        >
+          <div className={styles.container}>
              <div className={styles.icons}>
                <FileIcon className={styles.right} />
                <FileIcon className={styles.left} />
