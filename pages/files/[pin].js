@@ -38,7 +38,7 @@ export default function FilesNonAuth() {
       router.push("/notfound");
     }
     
-  }, [user, router.push])
+  }, [user, router])
   
   useEffect(() => {
     handleChange.current(user)

@@ -36,7 +36,7 @@ export default function About() {
         
         <div className={styles.textBox}>
           <h3>Caution !</h3>
-          <p>Do not upload sensitive files. Don't upload copyrighted contents. We can't guarantee any uncaught error or server crash.<br /><br />Your Files will get automatically deleted after expiry time which is shown on dashboard's countdown.<br /><br />For more about Privacy related info <Link href="/terms">Read This</Link></p>
+          <p>Do not upload sensitive files. Don&apos;t upload copyrighted contents. We can&apos;t guarantee any uncaught error or server crash.<br /><br />Your Files will get automatically deleted after expiry time which is shown on dashboard&apos;s countdown.<br /><br />For more about Privacy related info <Link href="/terms">Read This</Link></p>
         </div>
         
         <div className={styles.adminInfo}>

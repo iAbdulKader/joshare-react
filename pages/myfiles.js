@@ -39,7 +39,7 @@ export default function MyFiles(){
     if(!pin){
        router.push("/")
     }
-  }, [pin, router.push])
+  }, [pin, router])
   
   useEffect(() => {
     handleChange.current(user)

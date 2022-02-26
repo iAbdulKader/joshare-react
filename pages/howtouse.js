@@ -30,7 +30,7 @@ export default function HowToUse() {
         
         <TutorialContainer img="2">
          <p>This is the<span className="highlight"> File Upload</span> Box. Drag and Drop your Files or click <span className="highlight">Browse</span>.</p>
-         <p>You can upload multiple files at once. But you can't upload files over 30MB.</p>
+         <p>You can upload multiple files at once. But you can&apos;t upload files over 30MB.</p>
         </TutorialContainer>
         
         <TutorialContainer img="3">
@@ -63,12 +63,12 @@ export default function HowToUse() {
         </TutorialContainer>
         
         <TutorialContainer img="9">
-         <p>Now some utility options. Here No. 1 is <span className="highlight">E-Mail Sender</span>. That means you can send your file's share link embedded emails to any one using our own <span className="highlight">STP Service</span>. Although you can send 2 Emails per session.</p>
-         <p>No.2 is for extending Exipry time of files. Default is 24 Hours. Yes, also you can extend time total of 2 times maximum of 48 hours. And the 3rd buttin is for clearing the current session. It's kind of logout functionality but it permanently delete the user.</p>
+         <p>Now some utility options. Here No. 1 is <span className="highlight">E-Mail Sender</span>. That means you can send your file&apos;s share link embedded emails to any one using our own <span className="highlight">STP Service</span>. Although you can send 2 Emails per session.</p>
+         <p>No.2 is for extending Exipry time of files. Default is 24 Hours. Yes, also you can extend time total of 2 times maximum of 48 hours. And the 3rd buttin is for clearing the current session. It&apos;s kind of logout functionality but it permanently delete the user.</p>
         </TutorialContainer>
         
         <TutorialContainer img="10">
-         <p>This is Email Sender. It's kind of self explanatory. You can see realtime how many emails you can send.</p>
+         <p>This is Email Sender. It&apos;s kind of self explanatory. You can see realtime how many emails you can send.</p>
         </TutorialContainer>
         
         <TutorialContainer img="11">

@@ -28,7 +28,7 @@ export default function Header({ showUpload = false }) {
     
       <div className={styles.header}>
         <div style={{marginLeft: "5%"}}>
-          <Link href="/">
+          <Link href="/" passHref>
             <div>
               <Logo fontSize=".7rem" />
             </div>
