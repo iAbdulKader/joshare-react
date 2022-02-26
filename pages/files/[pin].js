@@ -1,21 +1,20 @@
 import { useEffect, useContext, useState, useRef } from "react";
+import * as cookieParser from 'cookie';
+import jwtDecode from "jwt-decode";
 import Header from "../../components/Header";
 import PinHolder from "../../components/PinHolder";
 import Files from "../../components/Files";
 import Footer from "../../components/Footer";
 import Meta from "../../components/Meta";
-import useUser from "../../hooks/useUser";
 import { useRouter } from "next/router";
 import useGetFiles from "../../hooks/useGetFiles";
 import { GlobalContext } from "../../contexts/GlobalContext";
 
 export default function FilesNonAuth() {
+  const router = useRouter();
   const { setExpire, addFiles, clearFiles } = useContext(GlobalContext);
   
-  const router = useRouter();
-  
   const { pin } = router.query;
-  const savedUser = useUser();
   const { user } = useGetFiles(pin);
   
   const handleChange = useRef((data) => {
@@ -33,16 +32,6 @@ export default function FilesNonAuth() {
   const clearFilesRef = useRef(() => {
     clearFiles()
   })
-  
-  useEffect(() => {
-    if(!router.isReady) return
-    if(pin.length > 8 || pin.length < 8 || isNaN(pin)){
-      router.push("/notfound");
-    }
-    if(savedUser.pin === pin){
-      router.push("/myfiles");
-    }
-  }, [pin, savedUser, router.push])
   
   useEffect(() => {
     if(user.success === false) {
@@ -69,3 +58,31 @@ export default function FilesNonAuth() {
     )
 }
 
+export const getServerSideProps = async (ctx) => {
+    
+    const pin = ctx.params.pin;
+    const {token} = cookieParser.parse(ctx.req.headers.cookie || "")
+    
+    if(token){
+      let decodedToken = jwtDecode(token);
+      if(decodedToken.pin && decodedToken.expire && (decodedToken.pin === pin)){
+          return {
+            redirect: {
+              permanent: false,
+              destination: "/myfiles"
+            }
+          }
+      } 
+    }
+    if(pin.length > 8 || pin.length < 8 || isNaN(pin)){
+        return {
+          redirect: {
+            permanent: false,
+            destination: "/notfound"
+          }
+        }
+    }
+    return {
+        props: {}
+     }
+}
