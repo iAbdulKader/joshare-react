@@ -1,0 +1,26 @@
+.paletteContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  background: var(--color-bg-secondary);
+  margin: 15px auto;
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+  height: 45px;
+}
+.emailBtn{
+  margin-left: 20px;
+  color: var(--color-text-primary);
+    font-size: 19px;
+}
+.addTimeBtn{
+  color: var(--color-text-primary);
+    font-size: 19px;
+}
+.cookieClearBtn{
+  margin-right: 20px;
+  color: var(--color-text-primary);
+    font-size: 22px;
+}

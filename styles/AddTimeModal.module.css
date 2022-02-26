@@ -1,0 +1,26 @@
+.container{
+  background: var(--color-bg-secondary);
+  color:var(--color-text-primary);
+  width: 85%;
+  margin: 20px auto 15px auto;
+}
+.select {
+  margin-bottom: 20px;
+}
+.select select{
+  width: 140px;
+  height: 30px;
+  border: 1px solid  var(--color-button-border);
+  outline: none;
+  border-radius: 3px;
+  padding: 0 5px;
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+}
+.text {
+  text-align: center;
+}
+.text p {
+  font-size: 12px;
+  margin: 0 0 20px 0;
+}

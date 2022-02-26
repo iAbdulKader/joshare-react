@@ -1,0 +1,9 @@
+.container{
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  width: 85%;
+  margin: 20px auto 15px auto;
+}
+.text p{
+  font-size: 12px;
+}

@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+  width: 100%;
+  height: 100%;
+  /*min-height: -webkit-fill-available;*/
+  background-color: var(--color-bg-primary);
+  transition: background 250ms ease-in;
+}
+
+:root {
+  --box-shadow: 0px 20px 20px 0px #00000017;
+  --color-error: rgb(211,59,59);
+}
+
+body,
+body[data-theme="light"] {
+  --color-bg-primary: #edf5fe;
+  --color-bg-secondary: #fff;
+  --color-text-primary: black;
+  --color-text-secondary: #3c3c3c;
+  --color-bg-toggle: #393E46;
+  --color-text-toggle: #fff;
+  --color-progress: #edf5fe;
+  --color-bg-upload-hover: rgba(96,113,114,.1);
+  --color-button-border: #00c2cb;
+}
+body[data-theme="dark"] {
+  --color-bg-primary: #222831;
+  --color-bg-secondary: #393E46;
+  --color-text-primary: #fff;
+  --color-text-secondary: rgb(215,215,215);
+  --color-bg-toggle: #fff;
+  --color-text-toggle: black;
+  --color-progress: #6c6e6d;
+  --color-button-border: #ff5757;
+}
+
+
+
+/* Logo */
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 18vh;
+  margin-bottom: 6%;
+}
+.logoPrimary {
+  font-family: Spartan;
+  display: inline;
+  font-weight: 500;
+  color: #ff5757;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+.logoSecondary {
+  font-family: Spartan;
+  display: inline;
+  font-weight: 800;
+  color: #00c2cb;
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+
+/* Footer */
+.footer {
+  left: 0;
+  bottom: 0;
+  position: sticky;
+  position: fixed;
+  width: 100%;
+  height: 2rem;
+  background: var(--color-bg-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  z-index: 9;
+  border-top: 1px dashed #00c2cb;
+}
+.footer a {
+  text-decoration: none;
+  font-size: .5rem;
+  color: var(--color-text-primary);
+}
+.footerText {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 60%;
+}
+
+/* Bootraped */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.horizontal_center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vertical_center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+/*highlight text*/
+.highlight {
+  color: #00c2cb;
+  font-weight: 700;
+}
+/* Spiner class for uploaded files*/
+.loader_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+/*Common Button & Loader Spiner */
+.btnDefault{
+  transition: all 300ms ease-in-out;
+  color: var(--color-text-primary);
+  user-select: none;
+  curosr: pointer;
+}
+.btnDefault:hover{
+  color: #fff;
+  box-shadow: 0 3px 25px -7px var(--color-button-border);
+  background: var(--color-button-border);
+}
+.spinerCommon{
+  stroke: var(--color-text-primary);
+}
+.btnDefault:hover .spinerCommon{
+  stroke: #fff;
+}
+
+/* Utility Btn Class */
+.utilityBtn{
+  height: 32px;
+  width: 130px;
+  border: 1px solid var(--color-button-border);
+  font-size: 13px;
+  border-radius: 5px;
+}

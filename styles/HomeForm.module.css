@@ -1,0 +1,21 @@
+.HomeForm{
+  position: relative;
+}
+
+/* Upload Btn */
+.uploadBtn{
+  position: absolute;
+  top: 72px;
+  width: 100%;
+}
+.btnContainer{
+  width: 120px;
+  height: 33px;
+  margin: 0 auto;
+  border: 1px dashed #00c2cb;
+  font-size: 14px;
+  border-radius: 5px;
+}
+.btnContainer:hover{
+  border: 1px dashed var(--color-button-border);
+}

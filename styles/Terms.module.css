@@ -1,0 +1,20 @@
+.container{
+  width: 90%;
+  max-width: 600px;
+  margin: 25px auto 50px auto;
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+.container h1{
+  color: var(--color-button-border);
+  font-size: 20px;
+  color: var(--color-button-border);
+}
+.container h2{
+  font-size: 16px;
+}
+
+.container a{
+  text-decoration: none;
+  color: var(--color-button-border);
+}

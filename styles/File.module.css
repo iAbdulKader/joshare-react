@@ -1,0 +1,65 @@
+.container{
+  background: var(--color-bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto 10px auto;
+  border-radius: 6px;
+  box-shadow: var(--box-shadow);
+}
+.fileIcon{
+  height: 28px;
+  width: 25px;
+  overflow: hidden;
+}
+.fileIcon svg{
+  height: 95%;
+}
+
+.fileInfoContainer{
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+}
+.fileInfoContainer p{
+  margin: 0 0 9px 0;
+  padding: 0;
+  font-size: 10px;
+  color: var(--color-text-secondary);
+}
+.fileInfoContainer input{
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text-primary);
+  padding: 10px 0 0 0;
+}
+.btnContainer {
+  color: var(--color-text-primary);
+  display: flex;
+  margin-right: 16px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.btnContainer .deleteBtn:hover,
+.btnContainer .downloadBtn:hover{
+  color: var(--color-button-border);
+}
+.textContainer{
+  margin-left: 8px;
+}
+.deleteBtn{
+}
+.downloadBtn {
+  margin-left: 10px;
+}
+
+/* NoFile */
+.noFileWrapper{
+  color: var(--color-text-primary);
+  margin: 18px auto;
+  font-size: 12px;
+}
