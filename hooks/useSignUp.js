@@ -1,11 +1,11 @@
 import { useState } from "react";
 import cookie from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import serverReq from "../lib/serverReq";
 
 export default function useSignUp() {
-  const navigate = useNavigate();
+  const router = useRouter();
   
   const [loading, setLoading] = useState(false);
   
@@ -13,7 +13,7 @@ export default function useSignUp() {
     setLoading(true);
     if(cookie.get("token")){
       setLoading(false);
-      navigate("/myfiles");
+      router.push("/myfiles");
     } else {
       toast.loading("Creating User Space");
       
@@ -27,12 +27,12 @@ export default function useSignUp() {
         toast.remove();
         toast.success("Created User Space")
         setLoading(false);
-        navigate("/myfiles");
+        router.push("/myfiles");
       } else {
         toast.error("Something Went Wrong")
       }
     }
   }
   
-  return { loading, signup } ;
+  return { loading, signup }
 }

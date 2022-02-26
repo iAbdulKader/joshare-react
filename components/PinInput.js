@@ -4,17 +4,17 @@ import toast from "react-hot-toast";
 import useUser from "../hooks/useUser";
 import { showError, hideError } from "../lib/errorShowHide";
 import getUserByPin from "../lib/getUserByPin";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import LoadingSpiner from "./LoadingSpiner";
 import { BiSearchAlt } from "react-icons/bi";
 
 export default function PinInput() {
+  const router = useRouter();
   const [pin, setPin] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const boxRef = useRef();
   
-  const navigate = useNavigate();
   const { pin: savedPin } = useUser();
   
   const handleSubmit = async (e) => {
@@ -25,13 +25,13 @@ export default function PinInput() {
       setError("Enter Valid 8 Digit Pin")
       toast.error("Enter Valid 8 Digit Pin");
     } else if(savedPin === pin) {
-      navigate("/myfiles");
+      router.push("/myfiles");
     } else {
       setLoading(true);
       let user = await getUserByPin(pin);
       if(user === true) {
         setLoading(false);
-        navigate(`/files/${pin}`);
+        router.push(`/files/${pin}`);
       } else {
         setLoading(false);
         showError(boxRef);

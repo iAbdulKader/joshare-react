@@ -4,16 +4,17 @@ import { FiCopy, FiFacebook } from "react-icons/fi";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { FaTelegramPlane } from "react-icons/fa";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
-import { useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import useUser from "../hooks/useUser";
 import toast from "react-hot-toast";
 
 export default function SharePage() {
+  const router = useRouter();
   const { pin: userPin } = useUser();
-  const { pin: paramPin } = useParams();
-  const pin = userPin ? userPin : paramPin;
+  const { pin: paramPin } = router.query;
+  const pin = paramPin ? paramPin : userPin;
   
-  const link = `${process.env.REACT_APP_CLIENT_URL}/files/${pin}`;
+  const link = `${process.env.NEXT_PUBLIC_CLIENT_URL}/files/${pin}`;
   const whatsAppLink = `https://api.whatsapp.com/send?text=Get My Files here. ${link}`;
   const telegramLink = `https://telegram.me/share/url?url=${link}&text=Get My Files Here.`;
   const fbLink = `https://www.facebook.com/sharer/sharer.php?u=${link}&quote=Get my files here.`

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import styles from "../styles/RemoveUserModal.module.css";
@@ -6,7 +6,7 @@ import Button from "./Button";
 import cookie from "js-cookie";
 
 export default function RemoveUserModal() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   
   const removeUser = () => {
@@ -18,7 +18,7 @@ export default function RemoveUserModal() {
       toast.remove();
       toast.success("User Removed");
       setLoading(false);
-      navigate("/")
+      router.push("/")
     }, 900);
   }
   

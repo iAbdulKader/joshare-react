@@ -6,7 +6,7 @@ import SharePage from "./SharePage";
 import CountDown from "./CountDown";
 import ShareButton from "./ShareButton";
 import Button from "./Button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import useSignUp from "../hooks/useSignUp";
 
 export default function Header({ showUpload = false }) {
@@ -28,8 +28,10 @@ export default function Header({ showUpload = false }) {
     
       <div className={styles.header}>
         <div style={{marginLeft: "5%"}}>
-          <Link to="/">
-            <Logo fontSize=".7rem" />
+          <Link href="/">
+            <div>
+              <Logo fontSize=".7rem" />
+            </div>
           </Link>
         </div>
         

@@ -46,6 +46,9 @@
 .inputContainer input::placeholder {
   font-family: Poppins;
 }
+.inputContainer input:focus {
+  background: transparent;
+}
 
 .buttonContainer{
   width: 40px;

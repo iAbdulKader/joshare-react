@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <div className="footer">
         <div className="footerText">
-          <Link to="/about">About</Link>
-          <Link to="/terms">Terms & Conditons</Link>
-          <Link to="/howtouse">How To Use</Link>
-          <Link to="/support">Support</Link>
+          <Link href="/about">About</Link>
+          <Link href="/terms">Terms & Conditons</Link>
+          <Link href="/howtouse">How To Use</Link>
+          <Link href="/support">Support</Link>
         </div>
       </div>
     )
