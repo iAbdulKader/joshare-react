@@ -37,6 +37,9 @@
   margin-top: 15px;
 }
 
+.icons * {
+  pointer-events: none;
+}
 .container{
   height: 100%;
   display: flex;
@@ -54,6 +57,7 @@
 .textContainer{
   margin-bottom: 5px;
   text-align: center;
+  pointer-events: none;
 }
 
 .left{
