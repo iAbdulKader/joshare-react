@@ -11,6 +11,7 @@ body {
   /*min-height: -webkit-fill-available;*/
   background-color: var(--color-bg-primary);
   transition: background 250ms ease-in;
+  box-sizing: border-box;
 }
 
 :root {
