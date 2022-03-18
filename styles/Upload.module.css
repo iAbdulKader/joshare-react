@@ -89,4 +89,5 @@
 }
 .browse{
   pointer-events: all;
+  cursor: pointer;
 }
