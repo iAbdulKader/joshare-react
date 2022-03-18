@@ -35,7 +35,6 @@
   max-width: 80px;
   position: relative;
   margin-top: 15px;
-  pointer-events: none;
 }
 
 .container{
@@ -44,6 +43,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  pointer-events: none;
 }
 .container:hover {
   background: var(--color-bg-upload-hover)
@@ -86,4 +86,7 @@
   margin: 10px 0 0 0;
   padding: 0;
   color: var(--color-text-primary);
+}
+.browse{
+  pointer-events: all;
 }

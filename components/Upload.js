@@ -97,7 +97,11 @@ export default function Upload() {
                multiple
              />
              <div className={styles.textContainer}>
-              <h4>Drag & Drop Your Files Or <span style={{color: "#0288d1"}} onClick={triggerFile}>Browse</span></h4>
+              <h4>Drag & Drop Your Files Or <span 
+                                              style={{color: "#0288d1"}} 
+                                              onClick={triggerFile}
+                                              className={styles.browse}
+                                            >Browse</span></h4>
               <p>Max file size 30MB<span className="highlight">.</span></p>
              </div>
           </div>
