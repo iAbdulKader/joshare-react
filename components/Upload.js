@@ -73,7 +73,7 @@ export default function Upload() {
     console.log(e.dataTransfer.files)
       e.preventDefault();
       dragRef.current.classList.remove("drag");
-      handleChange(e.dataTransfer.files);
+      handleFiles(e.dataTransfer.files);
   }
   
   return (
