@@ -70,7 +70,7 @@ export default function Upload() {
   }
   
   const fileDrop = (e) => {
-    console.log("Drop")
+    console.log(e.dataTransfer.files)
       e.preventDefault();
       dragRef.current.classList.remove("drag");
       handleChange(e.dataTransfer.files);
