@@ -60,19 +60,19 @@ export default function Upload() {
   const dragEnter = (e) => {
       console.log("Enter")
       e.preventDefault();
-      dragRef.current.classList.add("drag");
+      dragRef.current.classList.add(styles.drag);
   }
   
   const dragLeave = (e) => {
       console.log("Leave")
       e.preventDefault();
-      dragRef.current.classList.remove("drag");
+      dragRef.current.classList.remove(styles.drag);
   }
   
   const fileDrop = (e) => {
     console.log(e.dataTransfer.files)
       e.preventDefault();
-      dragRef.current.classList.remove("drag");
+      dragRef.current.classList.remove(styles.drag);
       handleFiles(e.dataTransfer.files);
   }
   

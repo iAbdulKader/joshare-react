@@ -30,6 +30,7 @@
   width: 100%;
   font-size: 25px;
   font-weight: 800;
+  transition: all 300ms ease-in-out;
 }
 .closeBox{
   height: 26px;
