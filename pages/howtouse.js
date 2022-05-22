@@ -1,4 +1,4 @@
-import Layout from "../layout";
+import Header from "../components/Header"
 import TutorialContainer from "../components/TutorialContainer";
 import Meta from "../components/Meta";
 import styles from "../styles/HowToUse.module.css";
@@ -17,7 +17,8 @@ export function PageHeader({text}) {
 export default function HowToUse() {
   
   return (
-    <Layout>
+    <>
+      <Header showUpload={true} />
       <Meta title="How To Use | joShare - File Sharing" />
       <PageHeader text="How To Use" />
       
@@ -80,6 +81,6 @@ export default function HowToUse() {
         </TutorialContainer>
         <br />
       </div>
-    </Layout>
+    </>
     )
 }

@@ -1,5 +1,5 @@
 import styles from "../styles/About.module.css";
-import Layout from "../layout";
+import Header from "../components/Header"
 import { PageHeader } from "./howtouse.js";
 import Logo from "../components/Logo";
 import Meta from "../components/Meta";
@@ -10,7 +10,8 @@ import { FaDev } from "react-icons/fa";
 export default function About() {
   
   return (
-    <Layout>
+    <>
+      <Header showUpload={true} />
       <Meta title="About | joShare - File Sharing" />
       <PageHeader text="About" />
       
@@ -51,6 +52,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
     )
 }
