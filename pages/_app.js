@@ -1,7 +1,7 @@
 import '../styles/global.css';
 import NProgress from "nprogress";
 import Router from "next/router";
-import ThemeButton from "../components/ThemeButton";
+import Footer from "../components/Footer";
 import { Toaster } from 'react-hot-toast';
 import GlobalProvider from "../contexts/GlobalContext";
 
@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
     <GlobalProvider>
       <Component {...pageProps} />
       <Toaster />
-      <ThemeButton />
+      <Footer />
     </GlobalProvider>)
 }
 

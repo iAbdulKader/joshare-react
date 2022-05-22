@@ -1,4 +1,4 @@
-import Layout from "../layout";
+import Header from "../components/Header"
 import Meta from "../components/Meta";
 import { PageHeader } from "./howtouse.js";
 import styles from "../styles/Terms.module.css";
@@ -6,7 +6,8 @@ import styles from "../styles/Terms.module.css";
 export default function Terms() {
   
   return (
-    <Layout>
+    <>
+      <Header showUpload={true} />
       <Meta title="Terms & Conditions | joShare - File Sharing" />
     
       <PageHeader text="Terms & Conditions" />
@@ -142,6 +143,6 @@ export default function Terms() {
         <li>By email: <a href="mailto:support@joshare.ml">support@joshare.ml</a></li>
         </ul>
       </div>
-    </Layout>
+    </>
     )
 }
